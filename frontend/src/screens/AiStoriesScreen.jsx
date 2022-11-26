@@ -1,9 +1,19 @@
-import React from "react";
-import people from "../people";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Image } from "react-bootstrap";
 import Person from "../components/Person";
+import axios from "axios";
 
-const aiStoriesScreen = () => {
+const AiStoriesScreen = () => {
+  const [stories, setStories] = useState([]);
+
+  useEffect(() => {
+    const fetchStories = async () => {
+      const { data } = await axios.get("/api/ai-stories");
+      setStories(data);
+    };
+    fetchStories();
+  }, []);
+
   return (
     <>
       <p className="text-center mt-3">
@@ -15,7 +25,7 @@ const aiStoriesScreen = () => {
         intimate experiences.
       </p>
       <Row>
-        {people.map((person) => (
+        {stories.map((person) => (
           <Col sm={12} md={6} lg={4} xl={3}>
             <Person person={person} />
           </Col>
@@ -37,7 +47,7 @@ const aiStoriesScreen = () => {
           src="/images/Homepage/stamp.svg"
         />
       </Row>
-      <Row className="text-center py-3" style={{backgroundColor: "#FBF8F5"}}>
+      <Row className="text-center py-3" style={{ backgroundColor: "#FBF8F5" }}>
         <h4>PRIVACY</h4>
         <p>
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
@@ -52,4 +62,4 @@ const aiStoriesScreen = () => {
   );
 };
 
-export default aiStoriesScreen;
+export default AiStoriesScreen;

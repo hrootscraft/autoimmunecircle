@@ -1,19 +1,20 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Person = ({ person }) => {
   return (
     <Card className="my-3 p-3">
-      <a href={`/ai-stories/${person._id}`}>
+      <Link to={`/ai-stories/${person._id}`}>
         <Card.Img src={person.image} variant="top" />
-      </a>
+      </Link>
 
       <Card.Body>
-        <a href={`/ai-stories/${person._id}`}>
+        <Link to={`/ai-stories/${person._id}`}>
         <Card.Title as="h4">
             {person.name}
         </Card.Title>
-        </a>
+        </Link>
         <Card.Text as="div">
             <div>
                 {person.aiDisease}

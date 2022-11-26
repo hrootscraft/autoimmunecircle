@@ -1,24 +1,37 @@
 import React from "react";
 import { Container, Row, Col, Button, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: "#58849B", color: "#FBF8F5", padding: "2rem" }}>
+    <footer
+      style={{ backgroundColor: "#58849B", color: "#FBF8F5", padding: "2rem" }}
+    >
       <Container className="mt-3 pt-3">
         <Row>
-          <Col md={4} className="text-center py-3">
+          <Col id="linksId" md={4} className="text-center py-3">
             <Row>
-              <Button style={{color: "#FBF8F5"}} variant="link">Join Us</Button>
+              <Link to={"/signup"}>
+                <Button style={{ color: "#FBF8F5" }} variant="link">
+                  Join Us
+                </Button>
+              </Link>
             </Row>
             <Row>
               <Col>
-                <Image fluid src="/images/Homepage/insta-icon.svg"></Image>
+                <a href="https://instagram.com/autoimmunecircle">
+                  <Image fluid src="/images/Homepage/insta-icon.svg" />
+                </a>
               </Col>
               <Col>
-                <Image fluid src="/images/Homepage/facebook-icon.svg"></Image>
+                <a href="https://www.facebook.com/autoimmunecircle">
+                  <Image fluid src="/images/Homepage/facebook-icon.svg" />
+                </a>
               </Col>
               <Col>
-                <Image fluid src="/images/Homepage/mail-icon.svg"></Image>
+                <a href="mailto:autoimmunecircle@gmail.com">
+                  <Image fluid src="/images/Homepage/mail-icon.svg" />
+                </a>
               </Col>
             </Row>
           </Col>
@@ -33,34 +46,29 @@ const Footer = () => {
             </p>
           </Col>
           <Col md={4} className="text-center py-3">
-            <Button
-              style={{ color: "#FBF8F5" }}
-              href={`/about-ai`}
-              variant="link"
-            >
-              ABOUT AI
-            </Button>
-            <Button
-              style={{ color: "#FBF8F5" }}
-              href={`/ai-stories`}
-              variant="link"
-            >
-              AI STORIES
-            </Button>
-            <Button
-              style={{ color: "#FBF8F5" }}
-              href={`/about-us`}
-              variant="link"
-            >
-              ABOUT US
-            </Button>
-            <Button
-              style={{ color: "#FBF8F5" }}
-              href={`/community`}
-              variant="link"
-            >
-              COMMUNITY
-            </Button>
+            <Link to={"/about-ai"}>
+              <Button style={{ color: "#FBF8F5" }} variant="link">
+                ABOUT AI
+              </Button>
+            </Link>
+
+            <Link to={"/ai-stories"}>
+              <Button style={{ color: "#FBF8F5" }} variant="link">
+                AI STORIES
+              </Button>
+            </Link>
+
+            <Link to={"/about-us"}>
+              <Button style={{ color: "#FBF8F5" }} variant="link">
+                ABOUT US
+              </Button>
+            </Link>
+
+            <Link to={"/community"}>
+              <Button style={{ color: "#FBF8F5" }} variant="link">
+                COMMUNITY
+              </Button>
+            </Link>
           </Col>
         </Row>
       </Container>
