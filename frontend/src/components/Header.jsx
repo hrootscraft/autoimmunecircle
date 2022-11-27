@@ -14,7 +14,7 @@ const Header = () => {
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
-              <Image src="/images/homepage/logo.svg" height={100} width={100} />
+              <Image alt="AIC" src="/images/homepage/logo.png" height={100} width={100} />
             </Navbar.Brand>
           </LinkContainer>
 

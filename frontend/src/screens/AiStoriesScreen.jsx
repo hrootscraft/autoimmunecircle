@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Row, Col, Image } from "react-bootstrap";
 import Person from "../components/Person";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { listStories } from "../actions/storyActions";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
 
 const AiStoriesScreen = () => {
-  const [stories, setStories] = useState([]);
+  const dispatch = useDispatch();
+
+  const storyList = useSelector((state) => state.storyList);
+  const { loading, error, stories } = storyList;
 
   useEffect(() => {
-    const fetchStories = async () => {
-      const { data } = await axios.get("/api/ai-stories/approved");
-      setStories(data);
-    };
-    fetchStories();
-  }, []);
+    dispatch(listStories());
+  }, [dispatch]);
 
   return (
     <>
@@ -24,13 +26,19 @@ const AiStoriesScreen = () => {
         everyone who has put themselves out there and shared with us such
         intimate experiences.
       </p>
-      <Row>
-        {stories.map((person) => (
-          <Col sm={12} md={6} lg={4} xl={3}>
-            <Person person={person} />
-          </Col>
-        ))}
-      </Row>
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <Message variant="danger">{error}</Message>
+      ) : (
+        <Row>
+          {stories.map((person) => (
+            <Col sm={12} md={6} lg={4} xl={3}>
+              <Person person={person} />
+            </Col>
+          ))}
+        </Row>
+      )}
       <Row className="text-center my-5">
         <h3>IT'S YOUR TURN</h3>
         <p>
