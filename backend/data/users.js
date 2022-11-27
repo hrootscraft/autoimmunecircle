@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 const users = [
   {
     name: "John Doe",
+    hasPostedStory: false,
     password: bcrypt.hashSync("123456", 8),
     email: "johndoe@gmail.com",
     isFounder: false,
@@ -28,6 +29,7 @@ const users = [
   },
   {
     name: "Jane Doe",
+    hasPostedStory: false,
     password: bcrypt.hashSync("123456", 8),
     email: "janedoe@gmail.com",
     isFounder: false,
@@ -53,6 +55,7 @@ const users = [
   },
   {
     name: "Salvatore Mavin",
+    hasPostedStory: false,
     password: bcrypt.hashSync("123456", 8),
     email: "sal@gmail.com",
     isFounder: false,
@@ -78,6 +81,7 @@ const users = [
   },
   {
     name: "Zoey Holloway",
+    hasPostedStory: false,
     password: bcrypt.hashSync("123456", 8),
     email: "zoey@gmail.com",
     isFounder: false,
@@ -103,6 +107,7 @@ const users = [
   },
   {
     name: "Bianka Ray",
+    hasPostedStory: false,
     password: bcrypt.hashSync("123456", 8),
     email: "gerald@gmail.com",
     isFounder: false,
@@ -128,6 +133,7 @@ const users = [
   },
   {
     name: "Sam Jacob",
+    hasPostedStory: false,
     password: bcrypt.hashSync("123456", 8),
     email: "gianni@gmail.com",
     isFounder: false,
@@ -153,6 +159,7 @@ const users = [
   },
   {
     name: "Admin User",
+    hasPostedStory: false,
     password: bcrypt.hashSync("123456", 8),
     email: "autoimmunecircle@gmail.com",
     isFounder: false,
@@ -163,6 +170,7 @@ const users = [
   },
   {
     name: "Shital Bhise",
+    hasPostedStory: false,
     password: bcrypt.hashSync("123456", 8),
     email: "shitalbhise04@gmail.com",
     isFounder: true,

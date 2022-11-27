@@ -11,6 +11,10 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    hasPostedStory: {
+      type: String,
+      default: false,
+    },
     isFounder: {
       type: Boolean,
       default: false,
