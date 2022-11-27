@@ -10,7 +10,7 @@ const HomeScreen = () => {
             fluid
             height={900}
             width={900}
-            src="/images/Homepage/peep-ill.svg"
+            src="/images/homepage/peep-ill.svg"
           />
         </Col>
         <Col md={6} className="my-auto">
@@ -75,7 +75,7 @@ const HomeScreen = () => {
             <Image
               height={70}
               width={70}
-              src="/images/Homepage/resources.svg"
+              src="/images/homepage/resources.svg"
             />
           </Row>
           <Row>
@@ -87,7 +87,7 @@ const HomeScreen = () => {
             <Image
               height={70}
               width={70}
-              src="/images/Homepage/community.svg"
+              src="/images/homepage/community.svg"
             />
           </Row>
           <Row>
@@ -99,7 +99,7 @@ const HomeScreen = () => {
             <Image
               height={70}
               width={70}
-              src="/images/Homepage/support-icon.svg"
+              src="/images/homepage/support-icon.svg"
             />
           </Row>
           <Row>
@@ -114,7 +114,7 @@ const HomeScreen = () => {
             Do you need someone to amuse or vent out your feelings? Let's be
             friends!
           </p>
-          <Image className="mb-3" height={70} width={70} src="/images/Homepage/stamp.svg" />
+          <Image className="mb-3" height={70} width={70} src="/images/homepage/stamp.svg" />
           <p>Go on! its completely free</p>
         </div>
       </Row>

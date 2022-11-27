@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const AboutUsScreen = () => {
+  const [founder, setFounder] = useState({});
+
+  useEffect(() => {
+    const fetchFounder = async () => {
+      const data = await axios.get(`/api/founder`);
+      setFounder(data.data);
+    };
+    fetchFounder();
+  }, []);
+
   return (
     <>
       <Row
@@ -27,25 +39,21 @@ const AboutUsScreen = () => {
           About the Founder
         </h3>
         <Col md={6} sm={12} className="my-auto">
-          <Image fluid src="/images/People/founder.jpg" />
+          <Image fluid src={founder.photo} />
         </Col>
         <Col className="my-auto" md={6} sm={12}>
           <h3 className="my-3" style={{ color: "#FBA474" }}>
-            SHITAL BHISE
+            {founder.name}
           </h3>
           <p>
-            <span className="fw-bold">Type</span> : Sjogrens Syndrome <br />
-            <span className="fw-bold">Diagnosed</span> : 2014 <br />
-            <span className="fw-bold">From</span> : Pune, Maharashtra
+            <span className="fw-bold">Type</span> : {founder.disease} <br />
+            <span className="fw-bold">Diagnosed</span> :{founder.diagnosedOn}{" "}
+            <br />
+            <span className="fw-bold">From</span> : {founder.city},
+            {founder.country}
           </p>
-          <p>
-            I was diagnosed with an Autoimmune disorder in 2014, when I was just
-            13 years old. Luckily for me, my mothers a pediatric doctor, which
-            is why I got diagnosed quickly and began treatment under the best
-            doctors. Currently, 8 years later, I am still on maintenance
-            medication, hoping to get off it soon.
-          </p>
-          <a href={`/ai-stories/founder-story`}>READ FULL STORY</a>
+          <p>{founder.story}</p>
+          <Link to={`/ai-stories/${founder._id}`}>READ FULL STORY</Link>
         </Col>
       </Row>
 
@@ -69,7 +77,7 @@ const AboutUsScreen = () => {
           className="mt-2"
           width={80}
           height={80}
-          src="/images/Homepage/stamp.svg"
+          src="/images/homepage/stamp.svg"
         />
       </Row>
 
@@ -79,13 +87,13 @@ const AboutUsScreen = () => {
             className="mx-3"
             width={30}
             height={30}
-            src="/images/Homepage/heart.svg"
+            src="/images/homepage/heart.svg"
           />
           <Image
             className="mx-3"
             width={30}
             height={30}
-            src="/images/Homepage/heart.svg"
+            src="/images/homepage/heart.svg"
           />
         </Col>
         <Col md={6}>
@@ -105,13 +113,13 @@ const AboutUsScreen = () => {
             className="mx-3"
             width={30}
             height={30}
-            src="/images/Homepage/heart.svg"
+            src="/images/homepage/heart.svg"
           />
           <Image
             className="mx-3"
             width={30}
             height={30}
-            src="/images/Homepage/heart.svg"
+            src="/images/homepage/heart.svg"
           />
         </Col>
       </Row>

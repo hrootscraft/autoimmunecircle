@@ -14,14 +14,14 @@ const Header = () => {
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
-              <Image src="/images/Homepage/logo.svg" height={100} width={100} />
+              <Image src="/images/homepage/logo.svg" height={100} width={100} />
             </Navbar.Brand>
           </LinkContainer>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-                <Nav.Link href="#linksId">AIC Links</Nav.Link>
+              <Nav.Link href="#linksId">AIC Links</Nav.Link>
               <LinkContainer to="/login">
                 <Nav.Link>Login</Nav.Link>
               </LinkContainer>

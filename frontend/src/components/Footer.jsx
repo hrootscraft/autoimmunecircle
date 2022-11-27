@@ -8,8 +8,10 @@ const Footer = () => {
       style={{ backgroundColor: "#58849B", color: "#FBF8F5", padding: "2rem" }}
     >
       <Container className="mt-3 pt-3">
+
         <Row>
           <Col id="linksId" md={4} className="text-center py-3">
+
             <Row>
               <Link to={"/signup"}>
                 <Button style={{ color: "#FBF8F5" }} variant="link">
@@ -17,24 +19,29 @@ const Footer = () => {
                 </Button>
               </Link>
             </Row>
+
             <Row>
               <Col>
                 <a href="https://instagram.com/autoimmunecircle">
-                  <Image fluid src="/images/Homepage/insta-icon.svg" />
+                  <Image fluid src="/images/homepage/insta-icon.svg" />
                 </a>
               </Col>
+
               <Col>
                 <a href="https://www.facebook.com/autoimmunecircle">
-                  <Image fluid src="/images/Homepage/facebook-icon.svg" />
+                  <Image fluid src="/images/homepage/facebook-icon.svg" />
                 </a>
               </Col>
+
               <Col>
                 <a href="mailto:autoimmunecircle@gmail.com">
-                  <Image fluid src="/images/Homepage/mail-icon.svg" />
+                  <Image fluid src="/images/homepage/mail-icon.svg" />
                 </a>
               </Col>
             </Row>
+
           </Col>
+
           <Col md={4} className="text-center py-3">
             <h4 style={{ color: "#FBF8F5" }}>DISCLAIMER</h4>
             <p>

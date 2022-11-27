@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Image, Button } from "react-bootstrap";
 
-const AiDiseasesScreen = () => {
+const diseasesScreen = () => {
   return (
     <>
       <Row className="mt-5 text-center">
@@ -30,6 +30,7 @@ const AiDiseasesScreen = () => {
         style={{ backgroundColor: "#FBF8F5" }}
       >
         <h4 style={{ color: "#58849B" }}>Common Types</h4>
+
         <Row>
           <Col md={3} sm={6} xs={6}>
             <Row>
@@ -37,49 +38,57 @@ const AiDiseasesScreen = () => {
                 className="my-2 mx-2"
                 height={100}
                 width={100}
-                src="/images/AIDiseases/celliac-disease.svg"
+                src="/images/diseases/celliac-disease.svg"
               />
-              <Row></Row>
-              <em>Celliac Disease</em>
+              <Row>
+                <em>Celliac Disease</em>
+              </Row>
             </Row>
           </Col>
+
           <Col md={3} sm={6} xs={6}>
             <Row>
               <Image
                 className="my-2 mx-2"
                 height={100}
                 width={100}
-                src="/images/AIDiseases/graves-disease.svg"
+                src="/images/diseases/graves-disease.svg"
               />
-              <Row></Row>
-              <em>Graves Disease</em>
+              <Row>
+                <em>Graves Disease</em>
+              </Row>
             </Row>
           </Col>
+
           <Col md={3} sm={6} xs={6}>
             <Row>
               <Image
                 className="my-2 mx-2"
                 height={100}
                 width={100}
-                src="/images/AIDiseases/hashimotos-thyroiditis.svg"
+                src="/images/diseases/hashimotos-thyroiditis.svg"
               />
-              <Row></Row>
-              <em>Hashimoto's Thyroiditis</em>
+              <Row>
+                <em>Hashimoto's Thyroiditis</em>
+              </Row>
             </Row>
           </Col>
+
           <Col md={3} sm={6} xs={6}>
             <Row>
               <Image
                 className="my-2 mx-2"
                 height={100}
                 width={100}
-                src="/images/AIDiseases/lupus.svg"
+                src="/images/diseases/lupus.svg"
               />
-              <Row></Row>
-              <em>Lupus</em>
+              <Row>
+                <em>Lupus</em>
+              </Row>
             </Row>
           </Col>
         </Row>
+
         <Row>
           <Col md={3} sm={6} xs={6}>
             <Row>
@@ -87,49 +96,57 @@ const AiDiseasesScreen = () => {
                 className="my-2 mx-2"
                 height={100}
                 width={100}
-                src="/images/AIDiseases/multiple-sclerosis.svg"
+                src="/images/diseases/multiple-sclerosis.svg"
               />
-              <Row></Row>
-              <em>Multiple Sclerosis</em>
+              <Row>
+                <em>Multiple Sclerosis</em>
+              </Row>
             </Row>
           </Col>
+
           <Col md={3} sm={6} xs={6}>
             <Row>
               <Image
                 className="my-2 mx-2"
                 height={100}
                 width={100}
-                src="/images/AIDiseases/rheumatoid-artheristis.svg"
+                src="/images/diseases/rheumatoid-artheristis.svg"
               />
-              <Row></Row>
-              <em>Rheumatoid Artheristis</em>
+              <Row>
+                <em>Rheumatoid Artheristis</em>
+              </Row>
             </Row>
           </Col>
+
           <Col md={3} sm={6} xs={6}>
             <Row>
               <Image
                 className="my-2 mx-2"
                 height={100}
                 width={100}
-                src="/images/AIDiseases/sjogrens-syndrome.svg"
+                src="/images/diseases/sjogrens-syndrome.svg"
               />
-              <Row></Row>
-              <em>Sjogren's Syndrome</em>
+              <Row>
+                <em>Sjogren's Syndrome</em>
+              </Row>
             </Row>
           </Col>
+
           <Col md={3} sm={6} xs={6}>
             <Row>
               <Image
                 className="my-2 mx-2"
                 height={100}
                 width={100}
-                src="/images/AIDiseases/myasthesia-gravis.svg"
+                src="/images/diseases/myasthesia-gravis.svg"
               />
-              <Row></Row>
-              <em>Myasthesia Gravis</em>
+              <Row>
+                <em>Myasthesia Gravis</em>
+              </Row>
             </Row>
           </Col>
         </Row>
+
         <p className="mt-5">
           There are more than 80 types of autoimmune diseases that attack all
           parts of the body and some of them have similar symptoms. Here, we
@@ -150,6 +167,7 @@ const AiDiseasesScreen = () => {
             symptoms and slow the progression of your disease.
           </p>
         </Col>
+
         <Col md={6}>
           <h4 style={{ color: "#FBA474" }}>NEED DOCTOR RECOMMENDATIONS ?</h4>
           <p>
@@ -177,4 +195,4 @@ const AiDiseasesScreen = () => {
   );
 };
 
-export default AiDiseasesScreen;
+export default diseasesScreen;

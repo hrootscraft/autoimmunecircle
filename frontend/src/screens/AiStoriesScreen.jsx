@@ -8,7 +8,7 @@ const AiStoriesScreen = () => {
 
   useEffect(() => {
     const fetchStories = async () => {
-      const { data } = await axios.get("/api/ai-stories");
+      const { data } = await axios.get("/api/ai-stories/approved");
       setStories(data);
     };
     fetchStories();
@@ -44,7 +44,7 @@ const AiStoriesScreen = () => {
           className="mt-2"
           width={80}
           height={80}
-          src="/images/Homepage/stamp.svg"
+          src="/images/homepage/stamp.svg"
         />
       </Row>
       <Row className="text-center py-3" style={{ backgroundColor: "#FBF8F5" }}>
