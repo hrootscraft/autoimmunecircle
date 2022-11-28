@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema(
       required: true,
     },
     hasPostedStory: {
-      type: String,
+      type: Boolean,
       default: false,
     },
     isFounder: {
@@ -24,28 +24,38 @@ const userSchema = mongoose.Schema(
     },
     gender: {
       type: String,
+      required: true,
     },
     dob: {
       type: String,
+      required: true,
     },
     city: {
       type: String,
+      required: true,
+    },
+    city: {
+      type: String,
+      required: true,
     },
     country: {
       type: String,
+      required: true,
     },
     phone: {
       type: String,
     },
     isPatient: {
       type: Boolean,
-      default: true,
+      required: true,
     },
     disease: {
       type: String,
+      required: true,
     },
     diagnosedOn: {
       type: String,
+      required: true,
     },
     story: {
       type: String,
@@ -84,6 +94,7 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
+// middleware: when a user registers, their password is encrypted before saving to user model
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     next();

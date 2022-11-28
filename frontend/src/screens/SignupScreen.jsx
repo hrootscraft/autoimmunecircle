@@ -47,7 +47,7 @@ const SignupScreen = () => {
               padding: "2rem",
             }}
           >
-            <Form.Group controlId="pg">
+            <Form.Group controlId="pg" required>
               <Form.Check
                 value="patient"
                 type="radio"
@@ -71,7 +71,7 @@ const SignupScreen = () => {
               <Form.Control type="text" placeholder="Full Name *" required />
             </Form.Group>
 
-            <Form.Group controlId="gender">
+            <Form.Group controlId="gender" required>
               <Form.Check
                 value="female"
                 type="radio"
@@ -102,11 +102,11 @@ const SignupScreen = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Control type="text" placeholder="City" />
+              <Form.Control type="text" placeholder="City *" required />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Control type="text" placeholder="Country" />
+              <Form.Control type="text" placeholder="Country *" required />
             </Form.Group>
 
             <Form.Group className="mb-3">

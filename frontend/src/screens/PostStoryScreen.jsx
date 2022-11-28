@@ -75,6 +75,11 @@ const PostStoryScreen = () => {
             <Form.Control type="file" accept="image/x-png,image/jpg" />
           </Form.Group>
 
+          <Form.Group className="mb-3">
+            <Form.Label>Instagram Id</Form.Label>
+            <Form.Control type="text" placeholder="@johndoe" />
+          </Form.Group>
+
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check
               type="checkbox"

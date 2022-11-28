@@ -2,7 +2,7 @@ import User from "../models/userModel.js";
 import asyncHandler from "express-async-handler";
 
 // @desc get founder document to display on about us
-// @route /api/get-founder
+// @route /api/founder
 // @access public
 const getFounderStory = asyncHandler(async (req, res) => {
   const user = await User.findOne(
@@ -25,8 +25,10 @@ const getFounderStory = asyncHandler(async (req, res) => {
   if (user) {
     res.json(user);
   } else {
-    res.status(404).status({ message: "Founder not found" });
+    res.status(404).json({ message: "Founder not found" });
   }
 });
+
+
 
 export { getFounderStory };
