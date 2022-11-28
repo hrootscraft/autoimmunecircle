@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { listStories } from "../actions/storyActions";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
+import { Link } from "react-router-dom";
 
 const AiStoriesScreen = () => {
   const dispatch = useDispatch();
@@ -46,14 +47,16 @@ const AiStoriesScreen = () => {
           ashamed to share it because that's what makes you unique. Share your
           story to create an impact today!
         </p>
-        <a href={`/post-story`}>SHARE YOUR STORY</a>
+        <Link to={`/post-story`}>SHARE YOUR STORY</Link>
         <p>It might help someone else...</p>
-        <Image
-          className="mt-2"
-          width={80}
-          height={80}
-          src="/images/homepage/stamp.svg"
-        />
+        <Link to={`/signup`}>
+          <Image
+            className="mt-2"
+            width={80}
+            height={80}
+            src="/images/homepage/stamp.svg"
+          />
+        </Link>
       </Row>
       <Row className="text-center py-3" style={{ backgroundColor: "#FBF8F5" }}>
         <h4>PRIVACY</h4>

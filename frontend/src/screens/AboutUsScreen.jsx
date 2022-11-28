@@ -73,12 +73,14 @@ const AboutUsScreen = () => {
           consent. We understand that this is a very sensitive and private topic
           and we respect that. So don't worry we've got your back!
         </p>
-        <Image
-          className="mt-2"
-          width={80}
-          height={80}
-          src="/images/homepage/stamp.svg"
-        />
+        <Link to={`/signup`}>
+          <Image
+            className="mt-2"
+            width={80}
+            height={80}
+            src="/images/homepage/stamp.svg"
+          />
+        </Link>
       </Row>
 
       <Row className="text-center mt-4">

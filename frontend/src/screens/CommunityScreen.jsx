@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Image, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const CommunityScreen = () => {
   return (
@@ -14,7 +15,9 @@ const CommunityScreen = () => {
             The chats and discussions forum is built built and will be launched
             very soon. Sign Up to be notified as soon as we go live!
           </p>
-          <Button variant="link">Sign Up</Button>
+          <Link to={`/signup`}>
+            <Button variant="link">Sign Up</Button>
+          </Link>
         </Col>
       </Row>
 

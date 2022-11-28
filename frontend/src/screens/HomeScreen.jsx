@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Image, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const HomeScreen = () => {
   return (
@@ -25,7 +26,11 @@ const HomeScreen = () => {
             . Fly into our safe space & join a community that runs on your
             stories and support!
           </p>
-          <Button style={{ backgroundColor: "#FBA474" }}>Join Us Today</Button>
+          <Link to={`/signup`}>
+            <Button style={{ backgroundColor: "#FBA474" }}>
+              Join Us Today
+            </Button>
+          </Link>
         </Col>
       </Row>
 
@@ -76,6 +81,7 @@ const HomeScreen = () => {
               height={70}
               width={70}
               src="/images/homepage/resources.svg"
+              cursor
             />
           </Row>
           <Row>
@@ -114,7 +120,14 @@ const HomeScreen = () => {
             Do you need someone to amuse or vent out your feelings? Let's be
             friends!
           </p>
-          <Image className="mb-3" height={70} width={70} src="/images/homepage/stamp.svg" />
+          <Link to={`/signup`}>
+            <Image
+              className="mb-3"
+              height={70}
+              width={70}
+              src="/images/homepage/stamp.svg"
+            />
+          </Link>
           <p>Go on! its completely free</p>
         </div>
       </Row>

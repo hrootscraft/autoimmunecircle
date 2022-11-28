@@ -37,7 +37,7 @@ const LoginScreen = () => {
       <Row className="text-center mt-5">
         <h4>NEW HERE ?</h4>
         <p>
-          We welcome you with open arms! Signup to join our free exclusive
+          We welcome you with open arms! Sign up to join our free exclusive
           member group
         </p>
         <Link to={"/signup"}>

@@ -65,6 +65,8 @@ const SignupScreen = () => {
             </Form.Group>
             <br />
 
+            <h4 style={{ color: "#FBA474" }}>Patient Info</h4>
+
             <Form.Group className="mb-3">
               <Form.Control type="text" placeholder="Full Name *" required />
             </Form.Group>
@@ -95,11 +97,8 @@ const SignupScreen = () => {
             <br />
 
             <Form.Group className="mb-3">
-              <Form.Control
-                type="text"
-                placeholder="Date of Birth *"
-                required
-              />
+              <Form.Label>Date of Birth *</Form.Label>
+              <Form.Control type="date" required />
             </Form.Group>
 
             <Form.Group className="mb-3">
@@ -115,7 +114,8 @@ const SignupScreen = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Control type="text" placeholder="Diagnosed On *" required />
+              <Form.Label>Diagnosed On *</Form.Label>
+              <Form.Control type="date" required />
             </Form.Group>
 
             <Form.Group className="mb-3">

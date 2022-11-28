@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Image, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const diseasesScreen = () => {
   return (
@@ -175,7 +176,9 @@ const diseasesScreen = () => {
             recommendations of doctors from people going through the same
             Autoimmune condition as yours.
           </p>
-          <Button variant="link">Ask Right Away</Button>
+          <Link to={`/signup`}>
+            <Button variant="link">Ask Right Away</Button>
+          </Link>
         </Col>
       </Row>
 
