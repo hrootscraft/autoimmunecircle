@@ -10,7 +10,7 @@ const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne(
     { email },
-    { _id: 1, name: 1, email: 1, isAdmin: 1, password: 1 }
+    { _id: 1, name: 1, email: 1, isAdmin: 1, password: 1, hasPostedStory: 1 }
   );
   if (user && (await user.matchPassword(password))) {
     res.json({
@@ -90,21 +90,24 @@ const postStory = asyncHandler(async (req, res) => {
 // @access Public
 const registerUser = asyncHandler(async (req, res) => {
   const {
-    isPatient = "",
-    name = "",
-    email = "",
     password = "",
+    confirmPassword = "",
+    email = "",
+    name = "",
+    isPatient = "",
     gender = "",
     dob = "",
     diagnosedOn = "",
     disease = "",
     city = "",
+    state = "",
     country = "",
     phone = "",
   } = req.body;
 
   if (
     validator.isEmpty(password) ||
+    validator.isEmpty(confirmPassword) ||
     validator.isEmpty(email) ||
     validator.isEmpty(name) ||
     validator.isEmpty(isPatient) ||
@@ -113,14 +116,19 @@ const registerUser = asyncHandler(async (req, res) => {
     validator.isEmpty(diagnosedOn) ||
     validator.isEmpty(disease) ||
     validator.isEmpty(city) ||
+    validator.isEmpty(state) ||
     validator.isEmpty(country)
   ) {
     res.status(400);
-    throw new Error("Invalid user data");
+    throw new Error("Invalid user data: One or more empty fields");
   }
   if (!validator.isEmail(email)) {
     res.status(400);
     throw new Error("Invalid email");
+  }
+  if (password !== confirmPassword) {
+    res.status(400);
+    throw new Error("Passwords don't match");
   }
 
   const isUser = await User.findOne({ email }, { _id: 1 });
@@ -129,21 +137,19 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new Error("User already exists");
   }
 
-  // if (isPatient === "patient") isPatient = true;
-  // else isPatient = false;
-
   const user = await User.create({
     isPatient: isPatient === "patient",
-    name,
     email,
     password,
-    gender,
     dob,
-    diagnosedOn,
-    disease,
     city,
+    state,
     country,
     phone,
+    name,
+    diagnosedOn,
+    gender,
+    disease,
   });
 
   if (user) {

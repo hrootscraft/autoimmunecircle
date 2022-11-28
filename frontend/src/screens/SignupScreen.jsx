@@ -1,26 +1,73 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Button, Col, Row } from "react-bootstrap";
+import { register } from "../actions/userActions";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import Message from "../components/Message";
+import Loader from "../components/Loader";
+import { Link } from "react-router-dom";
 
 const SignupScreen = () => {
-  const [pgRadio, setPgRadio] = useState({
-    p: "parent",
-    g: "guardian",
-    selectedVal: "",
-  });
-  const handlePgChange = (e) => {
-    setPgRadio({ ...pgRadio, selectedVal: e.target.value });
-    console.log(pgRadio);
+  const [currentPgRadioValue, setCurrentPgRadioValue] = useState("");
+  const handlePgRadioChange = (e) => {
+    setCurrentPgRadioValue(e.target.value);
   };
 
-  const [genRadio, setGenRadio] = useState({
-    f: "female",
-    m: "male",
-    o: "other",
-    selectedVal: "",
-  });
-  const handleGenChange = (e) => {
-    setGenRadio({ ...genRadio, selectedVal: e.target.value });
-    console.log(genRadio);
+  const [currentGenRadioValue, setCurrentGenRadioValue] = useState("");
+  const handleGenRadioChange = (e) => {
+    setCurrentGenRadioValue(e.target.value);
+  };
+
+  const [currentDob, setCurrentDob] = useState("");
+  const [diagnosedDate, setDiagnosedDate] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [state, setState] = useState("");
+  const [disease, setDisease] = useState("");
+  const [message, setMessage] = useState("");
+
+  const registerData = {
+    name,
+    email,
+    password,
+    confirmPassword,
+    phone,
+    dob: currentDob,
+    city,
+    country,
+    state,
+    disease,
+    diagnosedOn: diagnosedDate,
+    isPatient: currentPgRadioValue,
+    gender: currentGenRadioValue,
+  };
+
+  const dispatch = useDispatch();
+  const userRegister = useSelector((state) => state.userRegister);
+  const { loading, error, userInfo } = userRegister;
+
+  const location = useLocation();
+  const redirect = location.search ? location.search.split("=")[1] : "/";
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (userInfo && userInfo._id) {
+      navigate(redirect);
+    }
+  }, [userInfo, redirect, navigate]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      setMessage("Passwords don't match");
+    } else {
+      dispatch(register(registerData));
+    }
   };
 
   return (
@@ -56,6 +103,14 @@ const SignupScreen = () => {
               people. There are no hidden charges involved
             </p>
           </Row>
+          <Row className="py-3">
+            <Col>
+              <p>Have an account already ?</p>
+              <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
+                <Button style={{ backgroundColor: "#58849B" }}>Login</Button>
+              </Link>
+            </Col>
+          </Row>
         </Col>
 
         <Col md={6}>
@@ -64,23 +119,26 @@ const SignupScreen = () => {
               border: " 0.1rem solid #FBA474",
               padding: "2rem",
             }}
+            onSubmit={handleSubmit}
           >
             <Form.Group required>
               <Form.Check
-                value={pgRadio.p}
+                value="patient"
                 type="radio"
                 aria-label="Patient"
                 label="Patient"
-                onChange={handlePgChange}
-                name="toggle_option_1"
+                checked={currentPgRadioValue === "patient"}
+                onChange={handlePgRadioChange}
+                name="pg"
               />
               <Form.Check
-                value={pgRadio.g}
+                value="guardian"
                 type="radio"
                 aria-label="Guardian"
                 label="Guardian"
-                onChange={handlePgChange}
-                name="toggle_option_1"
+                checked={currentPgRadioValue === "guardian"}
+                onChange={handlePgRadioChange}
+                name="pg"
               />
             </Form.Group>
             <br />
@@ -88,78 +146,138 @@ const SignupScreen = () => {
             <h4 style={{ color: "#FBA474" }}>Patient Info</h4>
 
             <Form.Group className="mb-3">
-              <Form.Control type="text" placeholder="Full Name *" required />
+              <Form.Control
+                type="text"
+                placeholder="Full Name *"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
             </Form.Group>
 
             <Form.Group required>
               <Form.Check
-                value={genRadio.f}
+                value="female"
                 type="radio"
-                aria-label="Female"
                 label="Female"
-                onChange={handleGenChange}
-                name="toggle_option"
+                checked={currentGenRadioValue === "female"}
+                onChange={handleGenRadioChange}
+                name="gender"
               />
               <Form.Check
-                value={genRadio.m}
+                value="male"
                 type="radio"
-                aria-label="Male"
                 label="Male"
-                onChange={handleGenChange}
-                name="toggle_option"
+                checked={currentGenRadioValue === "male"}
+                onChange={handleGenRadioChange}
+                name="gender"
               />
               <Form.Check
-                value={genRadio.o}
+                value="other"
                 type="radio"
-                aria-label="Other"
                 label="Other"
-                onChange={handleGenChange}
-                name="toggle_option"
+                checked={currentGenRadioValue === "other"}
+                onChange={handleGenRadioChange}
+                name="gender"
               />
             </Form.Group>
             <br />
 
             <Form.Group className="mb-3">
               <Form.Label>Date of Birth *</Form.Label>
-              <Form.Control type="date" required />
+              <Form.Control
+                type="date"
+                value={currentDob}
+                onChange={(e) => setCurrentDob(e.target.value)}
+                required
+              />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Control type="text" placeholder="City *" required />
+              <Form.Control
+                type="text"
+                placeholder="City *"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                required
+              />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Control type="text" placeholder="State *" required />
+              <Form.Control
+                type="text"
+                placeholder="State *"
+                value={state}
+                onChange={(e) => setState(e.target.value)}
+                required
+              />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Control type="text" placeholder="Country *" required />
+              <Form.Control
+                type="text"
+                placeholder="Country *"
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+                required
+              />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Control type="text" placeholder="AI Disease *" required />
+              <Form.Control
+                type="text"
+                placeholder="AI Disease *"
+                value={disease}
+                onChange={(e) => setDisease(e.target.value)}
+                required
+              />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Diagnosed On *</Form.Label>
-              <Form.Control type="date" required />
+              <Form.Control
+                type="date"
+                value={diagnosedDate}
+                onChange={(e) => setDiagnosedDate(e.currentTarget.value)}
+                required
+              />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Control type="text" placeholder="Email *" required />
+              <Form.Control
+                type="text"
+                placeholder="Email *"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Control type="text" placeholder="Phone" />
+              <Form.Control
+                type="text"
+                placeholder="Phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Control type="text" placeholder="Password *" required />
+              <Form.Control
+                type="text"
+                placeholder="Password *"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
             </Form.Group>
+
             <Form.Group className="mb-3">
               <Form.Control
                 type="text"
                 placeholder="Confirm Password *"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
             </Form.Group>
@@ -168,6 +286,9 @@ const SignupScreen = () => {
               SIGN UP
             </Button>
           </Form>
+          {message && <Message variant="danger">{message}</Message>}{" "}
+          {error && <Message variant="danger">{error}</Message>}
+          {loading && <Loader />}
         </Col>
       </Row>
     </>

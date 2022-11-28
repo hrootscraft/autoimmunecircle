@@ -23,7 +23,7 @@ const LoginScreen = () => {
     if (userInfo && userInfo._id) {
       navigate(redirect);
     }
-  }, [userInfo, redirect]);
+  }, [userInfo, redirect, navigate]);
 
   const submitHandler = (e) => {
     e.preventDefault();

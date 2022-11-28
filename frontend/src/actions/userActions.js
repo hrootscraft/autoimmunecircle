@@ -55,12 +55,13 @@ export const register =
   (
     email,
     password,
-    name,
+    confirmPassword,
     dob,
     city,
     state,
     country,
     phone,
+    name,
     diagnosedOn,
     gender,
     isPatient,
@@ -83,12 +84,13 @@ export const register =
         {
           email,
           password,
-          name,
+          confirmPassword,
           dob,
           city,
           state,
           country,
           phone,
+          name,
           diagnosedOn,
           gender,
           isPatient,
@@ -102,6 +104,7 @@ export const register =
         payload: data,
       });
 
+      // as soon as the user registers log him in
       dispatch({
         type: USER_LOGIN_SUCCESS,
         payload: data,
