@@ -2,8 +2,26 @@ import React, { useState } from "react";
 import { Form, Button, Col, Row } from "react-bootstrap";
 
 const SignupScreen = () => {
-  const [item, setItem] = useState({ pg: "", gender: "" });
-  const { pg, gender } = item;
+  const [pgRadio, setPgRadio] = useState({
+    p: "parent",
+    g: "guardian",
+    selectedVal: "",
+  });
+  const handlePgChange = (e) => {
+    setPgRadio({ ...pgRadio, selectedVal: e.target.value });
+    console.log(pgRadio);
+  };
+
+  const [genRadio, setGenRadio] = useState({
+    f: "female",
+    m: "male",
+    o: "other",
+    selectedVal: "",
+  });
+  const handleGenChange = (e) => {
+    setGenRadio({ ...genRadio, selectedVal: e.target.value });
+    console.log(genRadio);
+  };
 
   return (
     <>
@@ -47,20 +65,22 @@ const SignupScreen = () => {
               padding: "2rem",
             }}
           >
-            <Form.Group controlId="pg" required>
+            <Form.Group required>
               <Form.Check
-                value="patient"
+                value={pgRadio.p}
                 type="radio"
                 aria-label="Patient"
                 label="Patient"
-                checked={pg === "patient"}
+                onChange={handlePgChange}
+                name="toggle_option_1"
               />
               <Form.Check
-                value="guardian"
+                value={pgRadio.g}
                 type="radio"
                 aria-label="Guardian"
                 label="Guardian"
-                checked={pg === "guardian"}
+                onChange={handlePgChange}
+                name="toggle_option_1"
               />
             </Form.Group>
             <br />
@@ -71,27 +91,30 @@ const SignupScreen = () => {
               <Form.Control type="text" placeholder="Full Name *" required />
             </Form.Group>
 
-            <Form.Group controlId="gender" required>
+            <Form.Group required>
               <Form.Check
-                value="female"
+                value={genRadio.f}
                 type="radio"
                 aria-label="Female"
                 label="Female"
-                checked={gender === "female"}
+                onChange={handleGenChange}
+                name="toggle_option"
               />
               <Form.Check
-                value="male"
+                value={genRadio.m}
                 type="radio"
                 aria-label="Male"
                 label="Male"
-                checked={gender === "male"}
+                onChange={handleGenChange}
+                name="toggle_option"
               />
               <Form.Check
-                value="other"
+                value={genRadio.o}
                 type="radio"
                 aria-label="Other"
                 label="Other"
-                checked={gender === "other"}
+                onChange={handleGenChange}
+                name="toggle_option"
               />
             </Form.Group>
             <br />
@@ -103,6 +126,10 @@ const SignupScreen = () => {
 
             <Form.Group className="mb-3">
               <Form.Control type="text" placeholder="City *" required />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Control type="text" placeholder="State *" required />
             </Form.Group>
 
             <Form.Group className="mb-3">

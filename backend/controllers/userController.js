@@ -18,6 +18,7 @@ const authUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
+      hasPostedStory: user.hasPostedStory,
       token: generateToken(user._id),
     });
   } else {
@@ -150,6 +151,7 @@ const registerUser = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      hasPostedStory: user.hasPostedStory,
       token: generateToken(user._id),
     });
   } else {

@@ -1,7 +1,12 @@
 import React from "react";
 import { Row, Form, Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import Message from "../components/Message";
 
 const PostStoryScreen = () => {
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+  console.log(userInfo);
   return (
     <>
       <Row
@@ -18,80 +23,84 @@ const PostStoryScreen = () => {
         </p>
       </Row>
 
-      <Row
-        style={{
-          border: " 0.1rem solid #FBA474",
-          padding: "2rem",
-        }}
-      >
-        <Form>
-          <Form.Group className="mb-3">
-            <Form.Label>Can you tell us a bit about yourself ? *</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={3}
-              placeholder="Family, location, work etc."
-              required
-            />
-          </Form.Group>
+      {userInfo.hasPostedStory ? (
+        <Message>You have already posted a story</Message>
+      ) : (
+        <Row
+          style={{
+            border: " 0.1rem solid #FBA474",
+            padding: "2rem",
+          }}
+        >
+          <Form>
+            <Form.Group className="mb-3">
+              <Form.Label>Can you tell us a bit about yourself ? *</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder="Family, location, work etc."
+                required
+              />
+            </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Tell us about your autoimmune story *</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={3}
-              placeholder="Symptoms, diagnosis, type, doctors, treatments etc."
-              required
-            />
-          </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Tell us about your autoimmune story *</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder="Symptoms, diagnosis, type, doctors, treatments etc."
+                required
+              />
+            </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>
-              Tell us about some things that have helped you reduce symptoms *
-            </Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={3}
-              placeholder="Lifestyle changes (diet or fitness or meditation), other remedies"
-              required
-            />
-          </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>
+                Tell us about some things that have helped you reduce symptoms *
+              </Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder="Lifestyle changes (diet or fitness or meditation), other remedies"
+                required
+              />
+            </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>
-              How has having an autoimmune disease affected your life,
-              positively and negatively ? *
-            </Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={3}
-              placeholder="Share your highs and lows, and encouraging quotes that keep you going"
-              required
-            />
-          </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>
+                How has having an autoimmune disease affected your life,
+                positively and negatively ? *
+              </Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder="Share your highs and lows, and encouraging quotes that keep you going"
+                required
+              />
+            </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Upload your picture</Form.Label>
-            <Form.Control type="file" accept="image/x-png,image/jpg" />
-          </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Upload your picture</Form.Label>
+              <Form.Control type="file" accept="image/x-png,image/jpg" />
+            </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Instagram Id</Form.Label>
-            <Form.Control type="text" placeholder="@johndoe" />
-          </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Instagram Id</Form.Label>
+              <Form.Control type="text" placeholder="@johndoe" />
+            </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check
-              type="checkbox"
-              label="I give permission for AUTOIMMUNECIRCLE to share this information on the @Autoimmunecircle Instagram feed and/or on their website."
-            />
-          </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Check
+                type="checkbox"
+                label="I give permission for AUTOIMMUNECIRCLE to share this information on the @Autoimmunecircle Instagram feed and/or on their website."
+              />
+            </Form.Group>
 
-          <Button style={{ backgroundColor: "#FBA474" }} type="submit">
-            SUBMIT
-          </Button>
-        </Form>
-      </Row>
+            <Button style={{ backgroundColor: "#FBA474" }} type="submit">
+              SUBMIT
+            </Button>
+          </Form>
+        </Row>
+      )}
     </>
   );
 };
