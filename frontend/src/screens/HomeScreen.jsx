@@ -49,9 +49,11 @@ const HomeScreen = () => {
             outsiders. Put all these problems together and the result is
             inflammation and damage to cells & organs.
           </p>
-          <Button style={{ backgroundColor: "#FBF8F5", color: "#58849B" }}>
-            Learn More
-          </Button>
+          <Link to="/about-ai">
+            <Button style={{ backgroundColor: "#FBF8F5", color: "#58849B" }}>
+              Learn More
+            </Button>
+          </Link>
         </Col>
         <Col md={6}>
           <div style={{ border: " 0.1rem solid #FBA474", padding: "2rem" }}>

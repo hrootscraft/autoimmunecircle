@@ -4,6 +4,7 @@ import connectDB from "./config/db.js";
 import aiStoriesRoutes from "./routes/aiStoryRoutes.js";
 import supplementaryRoutes from "./routes/supplementaryRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
+import cors from "cors";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
@@ -13,6 +14,12 @@ const app = express();
 connectDB();
 // foll. line must be placed before all routes
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 
 app.use("/api/ai-stories", aiStoriesRoutes);
 app.use("/api", supplementaryRoutes);

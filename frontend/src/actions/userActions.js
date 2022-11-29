@@ -51,73 +51,39 @@ export const logout = () => (dispatch) => {
 };
 
 // here isPatient is a value: "patient" or "guardian"
-export const register =
-  (
-    email,
-    password,
-    confirmPassword,
-    dob,
-    city,
-    state,
-    country,
-    phone,
-    name,
-    diagnosedOn,
-    gender,
-    isPatient,
-    disease
-  ) =>
-  async (dispatch) => {
-    try {
-      dispatch({
-        type: USER_REGISTER_REQUEST,
-      });
+export const register = (registerData) => async (dispatch) => {
+  try {
+    dispatch({
+      type: USER_REGISTER_REQUEST,
+    });
 
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-      const { data } = await axios.post(
-        "/api/users",
-        {
-          email,
-          password,
-          confirmPassword,
-          dob,
-          city,
-          state,
-          country,
-          phone,
-          name,
-          diagnosedOn,
-          gender,
-          isPatient,
-          disease,
-        },
-        config
-      );
+    const { data } = await axios.post("/api/users", registerData, config);
 
-      dispatch({
-        type: USER_REGISTER_SUCCESS,
-        payload: data,
-      });
+    dispatch({
+      type: USER_REGISTER_SUCCESS,
+      payload: data,
+    });
 
-      // as soon as the user registers log him in
-      dispatch({
-        type: USER_LOGIN_SUCCESS,
-        payload: data,
-      });
+    // as soon as the user registers log him in
+    dispatch({
+      type: USER_LOGIN_SUCCESS,
+      payload: data,
+    });
 
-      localStorage.setItem("userInfo", JSON.stringify(data));
-    } catch (error) {
-      dispatch({
-        type: USER_REGISTER_FAIL,
-        payload:
-          error.response && error.response.data.message
-            ? error.response.data.message
-            : error.message,
-      });
-    }
-  };
+    localStorage.setItem("userInfo", JSON.stringify(data));
+  } catch (error) {
+    dispatch({
+      type: USER_REGISTER_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};

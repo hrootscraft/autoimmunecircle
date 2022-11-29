@@ -28,6 +28,7 @@ const App = () => {
             <Route path="/post-story" element={<PostStoryScreen />} />
             <Route path="/login" element={<LoginScreen />} />
             <Route path="/signup" element={<SignupScreen />} />
+            <Route path="*" element={<p>Not found.</p>} />
           </Routes>
         </Container>
       </main>

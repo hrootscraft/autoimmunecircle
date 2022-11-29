@@ -37,7 +37,19 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="#linksId">AIC Links</Nav.Link>
+              <LinkContainer to="/community">
+                <Nav.Link>Community</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/about-us">
+                <Nav.Link>About us</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/about-ai">
+                <Nav.Link>About AI</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/ai-stories">
+                <Nav.Link>AI Stories</Nav.Link>
+              </LinkContainer>
+
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="username">
                   <LinkContainer to="/post-story">

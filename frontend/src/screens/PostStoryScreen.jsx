@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Form, Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Message from "../components/Message";
 
 const PostStoryScreen = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-  console.log(userInfo);
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!userInfo) {
+      navigate("/login");
+    }
+  }, [userInfo, navigate]);
+
   return (
     <>
       <Row
@@ -23,8 +31,17 @@ const PostStoryScreen = () => {
         </p>
       </Row>
 
-      {userInfo.hasPostedStory ? (
-        <Message>You have already posted a story</Message>
+      {userInfo && userInfo.hasPostedStory ? (
+        <Row className="text-center">
+          <Message>
+            {" "}
+            <p>You have already posted a story.</p>{" "}
+            <p>
+              Look out for it to get featured on our stories page or our
+              instagram handle.
+            </p>{" "}
+          </Message>
+        </Row>
       ) : (
         <Row
           style={{
