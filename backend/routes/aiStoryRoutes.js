@@ -1,13 +1,13 @@
 import express from "express";
 const router = express.Router();
 import {
-  getAdminStories,
   getApprovedStories,
   getStoryById,
+  updateStory,
 } from "../controllers/aiStoryController.js";
+import { admin, protect } from "../middleware/authMiddleware.js";
 
 router.route("/approved").get(getApprovedStories);
-router.route("/:id").get(getStoryById);
-router.route("/").get(getAdminStories);
+router.route("/:id").get(getStoryById).put(protect, admin, updateStory);
 
 export default router;

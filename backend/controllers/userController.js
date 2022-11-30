@@ -5,7 +5,7 @@ import validator from "validator";
 
 // @desc Auth user & get token
 // @route POST /api/users/login
-// @access Public
+// @access public
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne(
@@ -87,7 +87,7 @@ const postStory = asyncHandler(async (req, res) => {
 
 // @desc Register a new user
 // @route POST /api/users/
-// @access Public
+// @access public
 const registerUser = asyncHandler(async (req, res) => {
   const {
     password = "",
@@ -166,4 +166,43 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
-export { authUser, postStory, registerUser };
+// @desc Get all users
+// @route GET /api/users/
+// @access private/admin
+const getUsers = asyncHandler(async (req, res) => {
+  const users = await User.find(
+    {},
+    {
+      _id: 1,
+      name: 1,
+      email: 1,
+      isAdmin: 1,
+      hasPostedStory: 1,
+      isApproved: 1,
+      disease: 1,
+      diagnosedOn: 1,
+      city: 1,
+      state: 1,
+      country: 1,
+      dob: 1,
+      gender: 1,
+    }
+  );
+  res.json(users);
+});
+
+// @desc    Get user by ID
+// @route   GET /api/users/:id
+// @access  Private/Admin
+const getUserById = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id).select("-password");
+
+  if (user) {
+    res.json(user);
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
+
+export { authUser, postStory, registerUser, getUsers, getUserById };

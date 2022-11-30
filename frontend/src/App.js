@@ -11,6 +11,8 @@ import HomeScreen from "./screens/HomeScreen";
 import PostStoryScreen from "./screens/PostStoryScreen";
 import LoginScreen from "./screens/LoginScreen";
 import SignupScreen from "./screens/SignupScreen";
+import UserListScreen from "./screens/UserListScreen";
+import UserStoryEditScreen from "./screens/UserStoryEditScreen";
 
 const App = () => {
   return (
@@ -23,11 +25,20 @@ const App = () => {
             <Route path="/community" element={<CommunityScreen />} />
             <Route path="/about-ai" element={<AiDiseasesScreen />} />
             <Route path="/about-us" element={<AboutUsScreen />} />
-            <Route path="/ai-stories" element={<AiStoriesScreen />} />
-            <Route path="/ai-stories/:id" element={<AiStoryScreen />} />
-            <Route path="/post-story" element={<PostStoryScreen />} />
             <Route path="/login" element={<LoginScreen />} />
             <Route path="/signup" element={<SignupScreen />} />
+            <Route path="/post-story" element={<PostStoryScreen />} />
+
+            <Route path="/ai-stories">
+              <Route index element={<AiStoriesScreen />} />
+              <Route path=":id" element={<AiStoryScreen />} />
+            </Route>
+
+            <Route path="/admin">
+              <Route index element={<UserListScreen />} />
+              <Route path="user/:id/edit" element={<UserStoryEditScreen />} />
+            </Route>
+
             <Route path="*" element={<p>Not found.</p>} />
           </Routes>
         </Container>

@@ -34,7 +34,7 @@ const AiStoriesScreen = () => {
       ) : (
         <Row>
           {stories.map((person) => (
-            <Col sm={12} md={6} lg={4} xl={3}>
+            <Col key={person._id} sm={12} md={6} lg={4} xl={3}>
               <Person person={person} />
             </Col>
           ))}

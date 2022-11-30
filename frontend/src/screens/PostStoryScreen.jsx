@@ -1,10 +1,49 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Form, Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Message from "../components/Message";
+import Loader from "../components/Loader";
+import axios from "axios";
 
 const PostStoryScreen = () => {
+  const [about, setAbout] = useState("");
+  const [story, setStory] = useState("");
+  const [cure, setCure] = useState("");
+  const [impact, setImpact] = useState("");
+  const [photo, setPhoto] = useState("");
+  const [gramId, setGramId] = useState("");
+  const [uploading, setUploading] = useState(false);
+
+  const uploadFileHandler = async (e) => {
+    //here, we upload only a single image so select from the array (sized 1 here) first element
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+    setUploading(true);
+
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+
+      const { data } = await axios.post("/api/upload", formData, config);
+
+      setPhoto(data);
+      setUploading(false);
+    } catch (error) {
+      console.log(error);
+      setUploading(false);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(photo);
+  };
+
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
@@ -49,7 +88,7 @@ const PostStoryScreen = () => {
             padding: "2rem",
           }}
         >
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
               <Form.Label>Can you tell us a bit about yourself ? *</Form.Label>
               <Form.Control
@@ -57,6 +96,8 @@ const PostStoryScreen = () => {
                 rows={3}
                 placeholder="Family, location, work etc."
                 required
+                value={about}
+                onChange={(e) => setAbout(e.target.value)}
               />
             </Form.Group>
 
@@ -67,6 +108,8 @@ const PostStoryScreen = () => {
                 rows={3}
                 placeholder="Symptoms, diagnosis, type, doctors, treatments etc."
                 required
+                value={story}
+                onChange={(e) => setStory(e.target.value)}
               />
             </Form.Group>
 
@@ -79,6 +122,8 @@ const PostStoryScreen = () => {
                 rows={3}
                 placeholder="Lifestyle changes (diet or fitness or meditation), other remedies"
                 required
+                value={cure}
+                onChange={(e) => setCure(e.target.value)}
               />
             </Form.Group>
 
@@ -92,22 +137,36 @@ const PostStoryScreen = () => {
                 rows={3}
                 placeholder="Share your highs and lows, and encouraging quotes that keep you going"
                 required
+                value={impact}
+                onChange={(e) => setImpact(e.target.value)}
               />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Upload your picture</Form.Label>
-              <Form.Control type="file" accept="image/x-png,image/jpg" />
+              <Form.Control
+                type="file"
+                accept="image/x-png,image/jpg"
+                onChange={uploadFileHandler}
+                custom
+              />
+              {uploading && <Loader />}
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Instagram Id</Form.Label>
-              <Form.Control type="text" placeholder="@johndoe" />
+              <Form.Control
+                type="text"
+                placeholder="@johndoe"
+                value={gramId}
+                onChange={(e) => setGramId(e.target.value)}
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Check
                 type="checkbox"
+                required
                 label="I give permission for AUTOIMMUNECIRCLE to share this information on the @Autoimmunecircle Instagram feed and/or on their website."
               />
             </Form.Group>
