@@ -8,6 +8,9 @@ import {
 import { admin, protect } from "../middleware/authMiddleware.js";
 
 router.route("/approved").get(getApprovedStories);
-router.route("/:id").get(getStoryById).put(protect, admin, updateStory);
+router
+  .route("/:id")
+  .get(protect, getStoryById)
+  .put(protect, admin, updateStory);
 
 export default router;

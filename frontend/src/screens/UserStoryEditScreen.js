@@ -79,7 +79,7 @@ const UserStoryEditScreen = () => {
   useEffect(() => {
     if (successUpdate) {
       dispatch({ type: STORY_UPDATE_RESET });
-      navigate("/admin/");
+      navigate("/admin/page/1");
     } else {
       if (!user.name || user._id !== userId) {
         dispatch(getUserDetails(userId));

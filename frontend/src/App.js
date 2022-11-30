@@ -30,11 +30,13 @@ const App = () => {
             <Route path="/users/:id" element={<PostStoryScreen />} />
             <Route path="/ai-stories">
               <Route index element={<AiStoriesScreen />} />
+              <Route path="page/:pageNumber" element={<AiStoriesScreen />} />
               <Route path=":id" element={<AiStoryScreen />} />
             </Route>
 
             <Route path="/admin">
               <Route index element={<UserListScreen />} />
+              <Route path="page/:pageNumber" element={<UserListScreen />} />
               <Route path="user/:id/edit" element={<UserStoryEditScreen />} />
             </Route>
 

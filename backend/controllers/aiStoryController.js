@@ -5,6 +5,10 @@ import asyncHandler from "express-async-handler";
 // @route   /api/ai-stories/approved
 // @access  Public
 const getApprovedStories = asyncHandler(async (req, res) => {
+  const pageSize = 4;
+  const page = Number(req.query.pageNumber) || 1;
+  const count = await User.countDocuments({ isApproved: true });
+
   const users = await User.find(
     // get founder (who is also an admin) story but not the admin, so always keep isApproved of admin to false
     { isApproved: true },
@@ -21,13 +25,16 @@ const getApprovedStories = asyncHandler(async (req, res) => {
       gramId: 1,
       photo: 1,
     }
-  );
-  res.json(users);
+  )
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+
+  res.json({ users, page, pages: Math.ceil(count / pageSize) });
 });
 
 // @desc    Get a story based on id requested by client
 // @route   /api/ai-stories/:id
-// @access  Public
+// @access  Private
 const getStoryById = asyncHandler(async (req, res) => {
   const user = await User.find(
     { _id: req.params.id },

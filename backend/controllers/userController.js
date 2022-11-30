@@ -112,6 +112,10 @@ const registerUser = asyncHandler(async (req, res) => {
 // @route   GET /api/users/
 // @access  private/admin
 const getUsers = asyncHandler(async (req, res) => {
+  const pageSize = 5;
+  const page = Number(req.query.pageNumber) || 1;
+  const count = await User.countDocuments({});
+
   const users = await User.find(
     {},
     {
@@ -129,8 +133,10 @@ const getUsers = asyncHandler(async (req, res) => {
       dob: 1,
       gender: 1,
     }
-  );
-  res.json(users);
+  )
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+  res.json({ users, page, pages: Math.ceil(count / pageSize) });
 });
 
 // @desc    Get user by ID

@@ -5,17 +5,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { listStories } from "../actions/storyActions";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import Paginate from "../components/Paginate";
 
 const AiStoriesScreen = () => {
   const dispatch = useDispatch();
+  const params = useParams();
+  const pageNumber = params.pageNumber || 1;
 
   const storyList = useSelector((state) => state.storyList);
-  const { loading, error, stories } = storyList;
+  const { loading, error, stories, page, pages } = storyList;
 
   useEffect(() => {
-    dispatch(listStories());
-  }, [dispatch]);
+    dispatch(listStories(pageNumber));
+  }, [dispatch, pageNumber]);
 
   return (
     <>
@@ -32,13 +35,16 @@ const AiStoriesScreen = () => {
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
-        <Row>
-          {stories.map((person) => (
-            <Col key={person._id} sm={12} md={6} lg={4} xl={3}>
-              <Person person={person} />
-            </Col>
-          ))}
-        </Row>
+        <>
+          <Row>
+            {stories.map((person) => (
+              <Col key={person._id} sm={12} md={6} lg={4} xl={3}>
+                <Person person={person} />
+              </Col>
+            ))}
+          </Row>
+          <Paginate page={page} pages={pages} />
+        </>
       )}
       <Row className="text-center my-5">
         <h3>IT'S YOUR TURN</h3>

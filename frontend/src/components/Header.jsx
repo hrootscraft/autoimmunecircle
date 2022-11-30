@@ -46,7 +46,7 @@ const Header = () => {
               <LinkContainer to="/about-ai">
                 <Nav.Link>About AI</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/ai-stories">
+              <LinkContainer to="/ai-stories/page/1">
                 <Nav.Link>AI Stories</Nav.Link>
               </LinkContainer>
 
@@ -59,7 +59,7 @@ const Header = () => {
                     Logout
                   </NavDropdown.Item>
                   {userInfo.isAdmin && (
-                    <LinkContainer to="/admin">
+                    <LinkContainer to="/admin/page/1">
                       <NavDropdown.Item>Users</NavDropdown.Item>
                     </LinkContainer>
                   )}

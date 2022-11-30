@@ -59,7 +59,7 @@ const Footer = () => {
               </Button>
             </Link>
 
-            <Link to={"/ai-stories"}>
+            <Link to={"/ai-stories/page/1"}>
               <Button style={{ color: "#FBF8F5" }} variant="link">
                 AI STORIES
               </Button>

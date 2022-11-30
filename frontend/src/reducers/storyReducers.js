@@ -19,7 +19,9 @@ export const storyListReducer = (state = { stories: [] }, action) => {
     case STORY_LIST_SUCCESS:
       return {
         loading: false,
-        stories: action.payload,
+        stories: action.payload.users,
+        pages: action.payload.pages,
+        page: action.payload.page,
       };
     case STORY_LIST_FAIL:
       return { loading: false, error: action.payload };

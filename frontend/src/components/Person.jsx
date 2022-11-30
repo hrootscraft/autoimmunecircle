@@ -6,7 +6,7 @@ const Person = ({ person }) => {
   return (
     <Card key={person._id} className="my-3 p-3">
       <Link to={`/ai-stories/${person._id}`}>
-        <Card.Img height={300} src={person.photo} variant="top" />
+        <Card.Img height={300} width={300} src={person.photo} variant="top" />
       </Link>
 
       <Card.Body>

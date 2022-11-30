@@ -13,29 +13,42 @@ import {
 import axios from "axios";
 import { logout } from "./userActions";
 
-export const listStories = () => async (dispatch) => {
-  try {
-    dispatch({ type: STORY_LIST_REQUEST });
-    const { data } = await axios.get(`/api/ai-stories/approved`);
-    dispatch({
-      type: STORY_LIST_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    dispatch({
-      type: STORY_LIST_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
+export const listStories =
+  (pageNumber = "") =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: STORY_LIST_REQUEST });
+      const { data } = await axios.get(
+        `/api/ai-stories/approved?pageNumber=${pageNumber}`
+      );
+      dispatch({
+        type: STORY_LIST_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: STORY_LIST_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
 
-export const listStoryDetails = (id) => async (dispatch) => {
+export const listStoryDetails = (id) => async (dispatch, getState) => {
   try {
     dispatch({ type: STORY_DETAILS_REQUEST });
-    const { data } = await axios.get(`/api/ai-stories/${id}`);
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    const { data } = await axios.get(`/api/ai-stories/${id}`, config);
     dispatch({
       type: STORY_DETAILS_SUCCESS,
       payload: data[0],
@@ -79,7 +92,7 @@ export const updateStory = (user) => async (dispatch, getState) => {
     dispatch({ type: STORY_DETAILS_SUCCESS, payload: data });
 
     dispatch({ type: STORY_DETAILS_RESET });
-    document.location.href = "/admin";
+    document.location.href = "/admin/page/1";
   } catch (error) {
     const message =
       error.response && error.response.data.message

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Row, Col, Image } from "react-bootstrap";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -13,9 +13,17 @@ const AiStoryScreen = () => {
   const storyDetails = useSelector((state) => state.storyDetails);
   const { loading, error, story } = storyDetails;
 
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const navigate = useNavigate();
   useEffect(() => {
-    dispatch(listStoryDetails(id));
-  }, [dispatch, id]);
+    if (!userInfo) {
+      navigate("/login");
+    } else {
+      dispatch(listStoryDetails(id));
+    }
+  }, [userInfo, navigate, dispatch, id]);
 
   return (
     <>
