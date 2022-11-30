@@ -15,9 +15,9 @@ const HomeScreen = () => {
           />
         </Col>
         <Col md={6} className="my-auto">
-          <h2 className="mt-5" style={{ color: "#58849B", fontSize: "2rem" }}>
+          <p className="mt-5" style={{ color: "#58849B", fontSize: "2rem" }}>
             Welcome To Autoimmune Circle!
-          </h2>
+          </p>
           <p className="mt-3 mb-5">
             We are an army of superheroes combating{" "}
             <strong>
@@ -117,7 +117,7 @@ const HomeScreen = () => {
       </Row>
 
       <Row className="text-center">
-        <div style={{ border: " 0.1rem solid #FBA474", padding: "2rem" }}>
+        <div style={{ backgroundColor: "#FBF8F5", padding: "2rem" }}>
           <p>
             Do you need someone to amuse or vent out your feelings? Let's be
             friends!
@@ -125,9 +125,7 @@ const HomeScreen = () => {
           <Link to={`/signup`}>
             <Image
               className="mb-3"
-              height={70}
-              width={70}
-              src="/images/homepage/stamp.svg"
+              src="/images/buttons/homepage-join-us.svg"
             />
           </Link>
           <p>Go on! its completely free</p>

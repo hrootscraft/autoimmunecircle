@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const CommunityScreen = () => {
   return (
     <>
-      <Row className="text-center my-3">
+      <Row className="text-center my-3 mb-4">
         <Col md={6}>
           <Image fluid src="/images/homepage/online-world-cuate.svg" />
         </Col>
@@ -16,12 +16,12 @@ const CommunityScreen = () => {
             very soon. Sign Up to be notified as soon as we go live!
           </p>
           <Link to={`/signup`}>
-            <Button variant="link">Sign Up</Button>
+            <Button style={{ backgroundColor: "#FBA474" }}>SIGN UP</Button>
           </Link>
         </Col>
       </Row>
 
-      <Row className="text-center py-5" style={{ backgroundColor: "#FBF8F5" }}>
+      <Row className="text-center p-5 mt-4" style={{ backgroundColor: "#FBF8F5" }}>
         <Row>
           <h4 style={{ color: "#58849B" }}>What to expect</h4>
           <p>By signing up you will be able to,</p>

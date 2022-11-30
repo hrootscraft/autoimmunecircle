@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="237" height="72" viewBox="0 0 237 72">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fba474;
+      }
+
+      .cls-2 {
+        fill: #58849b;
+      }
+
+      .cls-3 {
+        fill: #fefefe;
+        font-size: 23px;
+        font-family: Muli;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+      }
+    </style>
+  </defs>
+  <g id="Group_462" data-name="Group 462" transform="translate(-411 -169)">
+    <rect id="Rectangle_43" data-name="Rectangle 43" class="cls-1" width="237" height="72" rx="36" transform="translate(411 169)"/>
+    <path id="Rectangle_43_-_Outline" data-name="Rectangle 43 - Outline" class="cls-2" d="M36,1A35.009,35.009,0,0,0,22.377,68.25,34.78,34.78,0,0,0,36,71H201A35.009,35.009,0,0,0,214.623,3.75,34.78,34.78,0,0,0,201,1H36m0-1H201a36,36,0,0,1,0,72H36A36,36,0,0,1,36,0Z" transform="translate(411 169)"/>
+    <g id="Group_34" data-name="Group 34" transform="translate(463.754 190.377)">
+      <text id="JOIN_US_" data-name="JOIN US " class="cls-3" transform="translate(64 23)"><tspan x="-64.4" y="0">JOIN US </tspan></text>
+    </g>
+  </g>
+</svg>

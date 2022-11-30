@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Button, Image } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -8,38 +8,30 @@ const Footer = () => {
       style={{ backgroundColor: "#58849B", color: "#FBF8F5", padding: "2rem" }}
     >
       <Container className="mt-3 pt-3">
-
         <Row>
-          <Col id="linksId" md={4} className="text-center py-3">
-
-            <Row>
-              <Link to={"/signup"}>
-                <Button style={{ color: "#FBF8F5" }} variant="link">
-                  Join Us
-                </Button>
-              </Link>
-            </Row>
-
-            <Row>
-              <Col>
-                <a href="https://instagram.com/autoimmunecircle">
+          <Col md={4} className="text-center py-3 my-auto">
+            <Link to={"/signup"}>
+              <Image height="50" src="/images/buttons/footer-join-us.svg" />
+            </Link>
+            <Row className="p-2 mt-3">
+              <Col className="ms-5">
+                <a href="https://www.instagram.com/autoimmune_circle">
                   <Image fluid src="/images/homepage/insta-icon.svg" />
                 </a>
               </Col>
 
               <Col>
-                <a href="https://www.facebook.com/autoimmunecircle">
+                <a href="https://www.facebook.com/profile.php?id=100088269910785">
                   <Image fluid src="/images/homepage/facebook-icon.svg" />
                 </a>
               </Col>
 
-              <Col>
+              <Col className="me-5">
                 <a href="mailto:autoimmunecircle@gmail.com">
                   <Image fluid src="/images/homepage/mail-icon.svg" />
                 </a>
               </Col>
             </Row>
-
           </Col>
 
           <Col md={4} className="text-center py-3">
@@ -52,29 +44,22 @@ const Footer = () => {
               reaction{" "}
             </p>
           </Col>
-          <Col md={4} className="text-center py-3">
-            <Link to={"/about-ai"}>
-              <Button style={{ color: "#FBF8F5" }} variant="link">
-                ABOUT AI
-              </Button>
+
+          <Col md={4} className="text-center py-3 my-auto">
+            <Link style={{textDecoration: "none"}} to={"/about-ai"}>
+              <p style={{ color: "#FBF8F5", fontWeight: "1.2rem" }}>ABOUT AI</p>
             </Link>
 
-            <Link to={"/ai-stories/page/1"}>
-              <Button style={{ color: "#FBF8F5" }} variant="link">
-                AI STORIES
-              </Button>
+            <Link style={{textDecoration: "none"}} to={"/ai-stories/page/1"}>
+              <p style={{ color: "#FBF8F5", fontWeight: "1.2rem" }}>AI STORIES</p>
             </Link>
 
-            <Link to={"/about-us"}>
-              <Button style={{ color: "#FBF8F5" }} variant="link">
-                ABOUT US
-              </Button>
+            <Link style={{textDecoration: "none"}} to={"/about-us"}>
+              <p style={{ color: "#FBF8F5", fontWeight: "1.2rem" }}>ABOUT US</p>
             </Link>
 
-            <Link to={"/community"}>
-              <Button style={{ color: "#FBF8F5" }} variant="link">
-                COMMUNITY
-              </Button>
+            <Link style={{textDecoration: "none"}} to={"/community"}>
+              <p style={{ color: "#FBF8F5", fontWeight: "1.2rem" }}>COMMUNITY</p>
             </Link>
           </Col>
         </Row>

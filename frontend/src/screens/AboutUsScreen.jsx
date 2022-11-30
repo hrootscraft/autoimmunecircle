@@ -16,10 +16,7 @@ const AboutUsScreen = () => {
 
   return (
     <>
-      <Row
-        style={{ backgroundColor: "#FBF8F5" }}
-        className="mt-2 pt-3 text-center"
-      >
+      <Row className="m-5 pt-3 text-center">
         <p>
           If you’re here, you probably are acquainted with our common friend -
           an Autoimmune condition! I have known it for over 7 years now and can
@@ -34,17 +31,23 @@ const AboutUsScreen = () => {
         </p>
       </Row>
 
-      <Row className="text-center mt-5">
-        <h3 className="mb-5" style={{ color: "#919191" }}>
-          About the Founder
-        </h3>
+      <Row
+        style={{
+          border: " 0.1rem solid #FBA474",
+          padding: "2rem",
+        }}
+        className="mt-5 text-center"
+      >
+        <p style={{ fontSize: "1.2rem", color: "#58849B" }}>
+          ABOUT THE FOUNDER
+        </p>
+
         <Col md={6} sm={12} className="my-auto">
-          <Image fluid src={founder.photo} />
+          <Image height={300} width={300} fluid src={founder.photo} />
         </Col>
+
         <Col className="my-auto" md={6} sm={12}>
-          <h3 className="my-3" style={{ color: "#FBA474" }}>
-            {founder.name}
-          </h3>
+          <h4 className="my-3">{founder.name}</h4>
           <p>
             <span className="fw-bold">Type</span> : {founder.disease} <br />
             <span className="fw-bold">Diagnosed</span> :{founder.diagnosedOn}{" "}
@@ -53,7 +56,9 @@ const AboutUsScreen = () => {
             {founder.country}
           </p>
           <p>{founder.story}</p>
-          <Link to={`/ai-stories/${founder._id}`}>READ FULL STORY</Link>
+          <Link to={`/ai-stories/${founder._id}`}>
+            <Image src="/images/buttons/about-us-read-full-s.svg" />
+          </Link>
         </Col>
       </Row>
 
@@ -74,16 +79,11 @@ const AboutUsScreen = () => {
           and we respect that. So don't worry we've got your back!
         </p>
         <Link to={`/signup`}>
-          <Image
-            className="mt-2"
-            width={80}
-            height={80}
-            src="/images/homepage/stamp.svg"
-          />
+          <Image className="mt-2" src="/images/buttons/about-us-join-us.svg" />
         </Link>
       </Row>
 
-      <Row className="text-center mt-4">
+      <Row className="text-center m-5">
         <Col className="my-auto" md={3}>
           <Image
             className="mx-3"
@@ -133,9 +133,9 @@ const AboutUsScreen = () => {
         <h4 style={{ color: "#58849B" }}>CONTACT US</h4>
         <p>
           We would love to hear from you! Have any ideas in mind, want to
-          request any improvements? Simply drop us a mail or dm on gram and
-          we'll get back to you.
+          request any improvements?
         </p>
+        <p>Simply drop us a mail or dm on gram and we'll get back to you.</p>
       </Row>
     </>
   );

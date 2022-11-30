@@ -1,0 +1,36 @@
+<svg id="Component_20_2" data-name="Component 20 – 2" xmlns="http://www.w3.org/2000/svg" width="252" height="65" viewBox="0 0 252 65">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d9f6fd;
+      }
+
+      .cls-2, .cls-5 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #58849b;
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        fill: #58849b;
+        font-size: 22px;
+        font-family: Muli;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+      }
+
+      .cls-4 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <rect id="Rectangle_16" data-name="Rectangle 16" class="cls-1" width="244" height="57" transform="translate(8 8)"/>
+  <g id="Rectangle_17" data-name="Rectangle 17" class="cls-2">
+    <rect class="cls-4" width="244" height="57"/>
+    <rect class="cls-5" x="1" y="1" width="242" height="55"/>
+  </g>
+  <text id="Share_Story" data-name="Share Story" class="cls-3" transform="translate(122 37)"><tspan x="-73.084" y="0">Share Story</tspan></text>
+</svg>

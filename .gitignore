@@ -27,3 +27,8 @@ yarn-error.log*
 
 /package-lock.json
 
+# home: left align
+# home: swap row 2's cols
+# left align about us photo-side col
+# name - anyonymous
+# one person can be logged in from 1 device

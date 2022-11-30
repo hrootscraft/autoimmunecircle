@@ -1,0 +1,36 @@
+<svg id="Component_18_1" data-name="Component 18 – 1" xmlns="http://www.w3.org/2000/svg" width="191" height="57" viewBox="0 0 191 57">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-5 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #58849b;
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        fill: #58849b;
+        font-size: 22px;
+        font-family: Muli;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+      }
+
+      .cls-4 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <rect id="Rectangle_16" data-name="Rectangle 16" class="cls-1" width="183" height="49" transform="translate(8 8)"/>
+  <g id="Rectangle_17" data-name="Rectangle 17" class="cls-2">
+    <rect class="cls-4" width="183" height="49"/>
+    <rect class="cls-5" x="1" y="1" width="181" height="47"/>
+  </g>
+  <text id="Learn_More.." data-name="Learn More.." class="cls-3" transform="translate(92 32)"><tspan x="-75.504" y="0">Learn More..</tspan></text>
+</svg>

@@ -5,7 +5,7 @@ import asyncHandler from "express-async-handler";
 // @route   /api/ai-stories/approved
 // @access  Public
 const getApprovedStories = asyncHandler(async (req, res) => {
-  const pageSize = 4;
+  const pageSize = 4; //
   const page = Number(req.query.pageNumber) || 1;
   const count = await User.countDocuments({ isApproved: true });
 

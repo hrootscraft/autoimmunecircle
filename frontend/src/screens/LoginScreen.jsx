@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Row } from "react-bootstrap";
+import { Form, Button, Row, Image, Col } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
@@ -35,59 +35,53 @@ const LoginScreen = () => {
       <h3
         style={{
           color: "#FBA474",
-          textAlign: "center",
-          fontSize: "2rem",
+          fontSize: "1.5rem",
           marginTop: "2rem",
         }}
       >
-        WELCOME BACK!
+        Welcome Back!
       </h3>
-      {error && <Message variant="danger">{error}</Message>}
-      {loading && <Loader />}
-      <Form
-        style={{
-          border: " 0.1rem solid #FBA474",
-          padding: "2rem",
-        }}
-        onSubmit={submitHandler}
-      >
-        <Form.Group className="mb-3">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="text"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="text"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Form.Group>
-        <Button style={{ backgroundColor: "#FBA474" }} type="submit">
-          LOGIN
-        </Button>
-      </Form>
+      <Row>
+        <Col md={6}>
+          {error && <Message variant="danger">{error}</Message>}
+          {loading && <Loader />}
+          <Form className="mt-5" onSubmit={submitHandler}>
+            <Form.Group className="mb-3">
+              <Form.Control
+                type="text"
+                required
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Control
+                type="text"
+                placeholder="Password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+            <Button style={{ backgroundColor: "#58849B" }} type="submit">
+              LOGIN
+            </Button>
+          </Form>
+        </Col>
 
-      <Row className="text-center mt-5">
-        <h4>NEW HERE ?</h4>
-        <p>
-          We welcome you with open arms! Sign up to join our free exclusive
-          member group
-        </p>
-        <Link to={redirect ? `/signup?redirect=${redirect}` : "/signup"}>
-          <Button
-            style={{ fontSize: "1.5rem", color: "#58849B" }}
-            variant="link"
-          >
-            SIGN UP
-          </Button>
-        </Link>
+        <Col md={6}>
+          <Row className="p-5 mt-2" style={{ backgroundColor: "#FBF8F5" }}>
+            <h4 style={{ color: "#FBA474" }}>NEW HERE ?</h4>
+            <p>
+              We welcome you with open arms! Sign up to join our free exclusive
+              member group
+            </p>
+            <Link to={redirect ? `/signup?redirect=${redirect}` : "/signup"}>
+              <Image width={200} src="/images/buttons/signup-blue-button.svg" />
+            </Link>
+          </Row>
+        </Col>
       </Row>
     </>
   );

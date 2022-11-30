@@ -73,46 +73,6 @@ const SignupScreen = () => {
   return (
     <>
       <Row>
-        <Col
-          style={{
-            padding: "2rem",
-            backgroundColor: "#F3F1EA",
-          }}
-          md={6}
-          className="my-auto"
-        >
-          <Row>
-            <h4 style={{ color: "#58849B" }}>Chat Freely</h4>
-            <p>
-              Sometimes all you need is someone to talk to. This is a safe place
-              for you to vent your thoughts and feelings. Remember we are all in
-              this together.
-            </p>
-          </Row>
-          <Row>
-            <h4 style={{ color: "#58849B" }}>Get your doubts answered</h4>
-            <p>
-              AI Diseases are comparitively rare and may have different symptoms
-              Get your doubts easily answered by others on the forum
-            </p>
-          </Row>
-          <Row>
-            <h4 style={{ color: "#58849B" }}>No hidden charges</h4>
-            <p>
-              This website has been created solely for the purpose of connecting
-              people. There are no hidden charges involved
-            </p>
-          </Row>
-          <Row className="py-3">
-            <Col>
-              <p>Have an account already ?</p>
-              <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-                <Button style={{ backgroundColor: "#58849B" }}>Login</Button>
-              </Link>
-            </Col>
-          </Row>
-        </Col>
-
         <Col md={6}>
           <Form
             style={{
@@ -289,6 +249,45 @@ const SignupScreen = () => {
           {message && <Message variant="danger">{message}</Message>}{" "}
           {error && <Message variant="danger">{error}</Message>}
           {loading && <Loader />}
+        </Col>
+        <Col
+          style={{
+            padding: "2rem",
+            backgroundColor: "#FBF8F5",
+          }}
+          md={6}
+          className="mb-auto"
+        >
+          <Row>
+            <h4 style={{ color: "#FBA474" }}>Chat Freely</h4>
+            <p style={{ color: "#58849B" }}>
+              Sometimes all you need is someone to talk to. This is a safe place
+              for you to vent your thoughts and feelings. Remember we are all in
+              this together.
+            </p>
+          </Row>
+          <Row>
+            <h4 style={{ color: "#FBA474" }}>Get your doubts answered</h4>
+            <p style={{ color: "#58849B" }}>
+              AI Diseases are comparitively rare and may have different symptoms
+              Get your doubts easily answered by others on the forum
+            </p>
+          </Row>
+          <Row>
+            <h4 style={{ color: "#FBA474" }}>No hidden charges</h4>
+            <p style={{ color: "#58849B" }}>
+              This website has been created solely for the purpose of connecting
+              people. There are no hidden charges involved
+            </p>
+          </Row>
+          <Row className="py-3">
+            <Col>
+              <p>Have an account already ?</p>
+              <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
+                <Button style={{ backgroundColor: "#FBA474" }}>Login</Button>
+              </Link>
+            </Col>
+          </Row>
         </Col>
       </Row>
     </>

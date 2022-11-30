@@ -27,7 +27,7 @@ const diseasesScreen = () => {
       </Row>
 
       <Row
-        className="text-center py-3 my-3"
+        className="text-center py-5 my-5"
         style={{ backgroundColor: "#FBF8F5" }}
       >
         <h4 style={{ color: "#58849B" }}>Common Types</h4>
@@ -42,7 +42,7 @@ const diseasesScreen = () => {
                 src="/images/diseases/celliac-disease.svg"
               />
               <Row>
-                <em>Celliac Disease</em>
+                <h6>Celliac Disease</h6>
               </Row>
             </Row>
           </Col>
@@ -56,7 +56,7 @@ const diseasesScreen = () => {
                 src="/images/diseases/graves-disease.svg"
               />
               <Row>
-                <em>Graves Disease</em>
+                <h6>Graves Disease</h6>
               </Row>
             </Row>
           </Col>
@@ -70,7 +70,7 @@ const diseasesScreen = () => {
                 src="/images/diseases/hashimotos-thyroiditis.svg"
               />
               <Row>
-                <em>Hashimoto's Thyroiditis</em>
+                <h6>Hashimoto's Thyroiditis</h6>
               </Row>
             </Row>
           </Col>
@@ -84,7 +84,7 @@ const diseasesScreen = () => {
                 src="/images/diseases/lupus.svg"
               />
               <Row>
-                <em>Lupus</em>
+                <h6>Lupus</h6>
               </Row>
             </Row>
           </Col>
@@ -100,7 +100,7 @@ const diseasesScreen = () => {
                 src="/images/diseases/multiple-sclerosis.svg"
               />
               <Row>
-                <em>Multiple Sclerosis</em>
+                <h6>Multiple Sclerosis</h6>
               </Row>
             </Row>
           </Col>
@@ -114,7 +114,7 @@ const diseasesScreen = () => {
                 src="/images/diseases/rheumatoid-artheristis.svg"
               />
               <Row>
-                <em>Rheumatoid Artheristis</em>
+                <h6>Rheumatoid Artheristis</h6>
               </Row>
             </Row>
           </Col>
@@ -128,7 +128,7 @@ const diseasesScreen = () => {
                 src="/images/diseases/sjogrens-syndrome.svg"
               />
               <Row>
-                <em>Sjogren's Syndrome</em>
+                <h6>Sjogren's Syndrome</h6>
               </Row>
             </Row>
           </Col>
@@ -142,7 +142,7 @@ const diseasesScreen = () => {
                 src="/images/diseases/myasthesia-gravis.svg"
               />
               <Row>
-                <em>Myasthesia Gravis</em>
+                <h6>Myasthesia Gravis</h6>
               </Row>
             </Row>
           </Col>
@@ -155,31 +155,29 @@ const diseasesScreen = () => {
         </p>
       </Row>
 
-      <Row className="text-center mt-5">
-        <Col md={6}>
-          <h4 style={{ color: "#58849B" }}>
-            Which doctor treats Ai Diseases ?
-          </h4>
-          <p>
-            There is no one doctor who treats Autoimmune diseases. Which doctor
-            you need depends on which body systems are affected by your
-            particular autoimmune disease. In some cases, you may need to see a
-            variety of different health care professionals to help manage your
-            symptoms and slow the progression of your disease.
-          </p>
-        </Col>
+      <Row className="text-center m-4">
+        <h4 style={{ color: "#58849B" }}>Which doctor treats Ai Diseases ?</h4>
+        <p>
+          There is no one doctor who treats Autoimmune diseases. Which doctor
+          you need depends on which body systems are affected by your particular
+          autoimmune disease. In some cases, you may need to see a variety of
+          different health care professionals to help manage your symptoms and
+          slow the progression of your disease.
+        </p>
+      </Row>
 
-        <Col md={6}>
-          <h4 style={{ color: "#FBA474" }}>NEED DOCTOR RECOMMENDATIONS ?</h4>
-          <p>
-            By joining our community, you'll be able to talk and get first-hand
-            recommendations of doctors from people going through the same
-            Autoimmune condition as yours.
-          </p>
+      <Row className="text-center m-4">
+        <h4 style={{ color: "#58849B" }}>NEED DOCTOR RECOMMENDATIONS ?</h4>
+        <p>
+          By joining our community, you'll be able to talk and get first-hand
+          recommendations of doctors from people going through the same
+          Autoimmune condition as yours.
+        </p>
+        <Row className="text-center m-4">
           <Link to={`/signup`}>
-            <Button variant="link">Ask Right Away</Button>
+            <Image src="/images/buttons/about-ai-ask-away.svg" />
           </Link>
-        </Col>
+        </Row>
       </Row>
 
       <Row
