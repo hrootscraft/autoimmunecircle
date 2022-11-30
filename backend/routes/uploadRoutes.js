@@ -23,7 +23,7 @@ function checkFileType(file, cb) {
   if (extname && mimetype) {
     return cb(null, true);
   } else {
-    cb(new Error("Images only!"));
+    cb(new Error("Images less than 1MB only!"));
   }
 }
 
@@ -32,6 +32,7 @@ const upload = multer({
   fileFilter: function (req, file, cb) {
     checkFileType(file, cb);
   },
+  limits: { fileSize: 1000000 },
 });
 
 router.post("/", upload.single("image"), (req, res) => {

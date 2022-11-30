@@ -3,9 +3,9 @@ import asyncHandler from "express-async-handler";
 import generateToken from "../utils/generateToken.js";
 import validator from "validator";
 
-// @desc Auth user & get token
-// @route POST /api/users/login
-// @access public
+// @desc    Auth user & get token
+// @route   POST /api/users/login
+// @access  Public
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne(
@@ -27,67 +27,9 @@ const authUser = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc post a story ie store info on user
-// @route /api/users/post-story
-// @access private
-const postStory = asyncHandler(async (req, res) => {
-  const user = await User.findOne({ _id: req.user._id });
-  if (!user) {
-    res.status(403);
-    throw new Errror("Unauthorized access; Sign up or Login first");
-  }
-  if (user && user.hasPostedStory) {
-    res.status(405);
-    throw new Error("Story already posted");
-  }
-
-  const {
-    about = "",
-    story = "",
-    cure = "",
-    impact = "",
-    gramId = "",
-    photo = "",
-  } = req.body;
-
-  if (
-    validator.isEmpty(about) ||
-    validator.isEmpty(story) ||
-    validator.isEmpty(cure) ||
-    validator.isEmpty(impact)
-  ) {
-    res.status(400);
-    throw new Error("Invalid story data");
-  }
-
-  // validate photo type and size
-  const createdPost = await User.updateOne(
-    { _id: user._id },
-    {
-      about,
-      story,
-      cure,
-      impact,
-      gramId,
-      photo,
-      hasPostedStory: true,
-    }
-  );
-
-  if (createdPost) {
-    res.status(200);
-    res.json({
-      message: "Story posted",
-    });
-  } else {
-    res.status(400);
-    throw new Error("Invalid story data");
-  }
-});
-
-// @desc Register a new user
-// @route POST /api/users/
-// @access public
+// @desc    Register a new user
+// @route   POST /api/users/
+// @access  public
 const registerUser = asyncHandler(async (req, res) => {
   const {
     password = "",
@@ -166,9 +108,9 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc Get all users
-// @route GET /api/users/
-// @access private/admin
+// @desc    Get all users
+// @route   GET /api/users/
+// @access  private/admin
 const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find(
     {},
@@ -205,4 +147,73 @@ const getUserById = asyncHandler(async (req, res) => {
   }
 });
 
-export { authUser, postStory, registerUser, getUsers, getUserById };
+// @desc    Post a story ie store info on user (update)
+// @route   PUT /api/ai-stories
+// @access  Private
+const postStory = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) {
+    res.status(403);
+    throw new Errror("Unauthorized access; Sign up or Login first");
+  } else if (user && user.hasPostedStory) {
+    res.status(405);
+    throw new Error("Story already posted");
+  } else if (user) {
+    if (
+      validator.isEmpty(req.body.about) ||
+      validator.isEmpty(req.body.story) ||
+      validator.isEmpty(req.body.cure) ||
+      validator.isEmpty(req.body.impact)
+    ) {
+      res.status(400);
+      throw new Error("Invalid story data");
+    }
+
+    if (validator.isEmpty(req.body.photo)) {
+      req.body.photo = "/images/users/profile.svg";
+    }
+
+    user.about = req.body.about || user.about;
+    user.story = req.body.story || user.story;
+    user.cure = req.body.cure || user.cure;
+    user.impact = req.body.impact || user.impact;
+    user.photo = req.body.photo || user.photo;
+    user.gramId = req.body.gramId || user.gramId;
+    user.hasPostedStory = true;
+
+    const updatedUser = await user.save();
+
+    res.json({
+      _id: updatedUser._id,
+      about: updatedUser.about,
+      story: updatedUser.story,
+      cure: updatedUser.cure,
+      impact: updatedUser.impact,
+      photo: updatedUser.photo,
+      gramId: updatedUser.gramId,
+      hasPostedStory: updatedUser.hasPostedStory,
+      isApproved: updatedUser.isApproved,
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
+
+// @desc    Delete user
+// @route   DELETE /api/users/:id
+// @access  Private/Admin
+const deleteUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    await user.remove();
+    res.json({ message: "User removed" });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
+
+export { authUser, registerUser, getUsers, getUserById, postStory, deleteUser };

@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Row, Form, Button } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { postStory } from "../actions/userActions";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const PostStoryScreen = () => {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
   const [about, setAbout] = useState("");
   const [story, setStory] = useState("");
   const [cure, setCure] = useState("");
@@ -39,11 +44,6 @@ const PostStoryScreen = () => {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(photo);
-  };
-
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
@@ -53,6 +53,12 @@ const PostStoryScreen = () => {
       navigate("/login");
     }
   }, [userInfo, navigate]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(postStory({ id, story, about, cure, impact, gramId, photo }));
+    navigate("/ai-stories");
+  };
 
   return (
     <>
@@ -146,7 +152,7 @@ const PostStoryScreen = () => {
               <Form.Label>Upload your picture</Form.Label>
               <Form.Control
                 type="file"
-                accept="image/x-png,image/jpg"
+                accept="image/x-png,image/jpg, image/jpeg"
                 onChange={uploadFileHandler}
                 custom
               />

@@ -10,6 +10,7 @@ node_modules/
 /coverage
 
 # production
+/frontend/build
 /build
 
 # misc
@@ -25,3 +26,4 @@ yarn-debug.log*
 yarn-error.log*
 
 /package-lock.json
+/uploads

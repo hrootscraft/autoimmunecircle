@@ -8,6 +8,7 @@ import { getUserDetails } from "../actions/userActions";
 import { STORY_UPDATE_RESET } from "../constants/storyConstants";
 import { Link } from "react-router-dom";
 import { updateStory } from "../actions/storyActions";
+import axios from "axios";
 
 const UserStoryEditScreen = () => {
   const params = useParams();
@@ -20,12 +21,48 @@ const UserStoryEditScreen = () => {
   const [story, setStory] = useState("");
   const [cure, setCure] = useState("");
   const [impact, setImpact] = useState("");
+  const [photo, setPhoto] = useState("");
+  const [gramId, setGramId] = useState("");
   const [isApproved, setIsApproved] = useState("");
+  const [uploading, setUploading] = useState(false);
+
+  const uploadFileHandler = async (e) => {
+    //here, we upload only a single image so select from the array (sized 1 here) first element
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+    setUploading(true);
+
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+
+      const { data } = await axios.post("/api/upload", formData, config);
+
+      setPhoto(data);
+      setUploading(false);
+    } catch (error) {
+      console.log(error);
+      setUploading(false);
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
-      updateStory({ _id: userId, about, story, cure, impact, isApproved })
+      updateStory({
+        _id: userId,
+        about,
+        story,
+        cure,
+        impact,
+        isApproved,
+        photo,
+        gramId,
+      })
     );
   };
 
@@ -51,6 +88,8 @@ const UserStoryEditScreen = () => {
         setStory(user.story);
         setCure(user.cure);
         setImpact(user.impact);
+        setImpact(user.photo);
+        setImpact(user.gramId);
         setIsApproved(user.isApproved);
       }
     }
@@ -145,6 +184,27 @@ const UserStoryEditScreen = () => {
                   />
                 </Form.Group>
 
+                <Form.Group className="mb-3">
+                  <Form.Label>Upload your picture</Form.Label>
+                  <Form.Control
+                    type="file"
+                    accept="image/x-png,image/jpg, image/jpeg"
+                    onChange={uploadFileHandler}
+                    custom
+                  />
+                  {uploading && <Loader />}
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                  <Form.Label>Instagram Id</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="@johndoe"
+                    value={gramId}
+                    onChange={(e) => setGramId(e.target.value)}
+                  />
+                </Form.Group>
+
                 <Form.Group controlId="isadmin">
                   <Form.Check
                     type="checkbox"
@@ -153,17 +213,6 @@ const UserStoryEditScreen = () => {
                     onChange={(e) => setIsApproved(e.target.checked)}
                   ></Form.Check>
                 </Form.Group>
-
-                {/* <Form.Group className="mb-3">
-              <Form.Label>Upload your picture</Form.Label>
-              <Form.Control
-                type="file"
-                accept="image/x-png,image/jpg"
-                onChange={uploadFileHandler}
-                custom
-              />
-              {uploading && <Loader />}
-            </Form.Group> */}
 
                 <Button style={{ backgroundColor: "#FBA474" }} type="submit">
                   UPDATE

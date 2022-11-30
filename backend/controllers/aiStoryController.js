@@ -64,6 +64,8 @@ const updateStory = asyncHandler(async (req, res) => {
     user.story = req.body.story || user.story;
     user.cure = req.body.cure || user.cure;
     user.impact = req.body.impact || user.impact;
+    user.photo = req.body.photo || user.photo;
+    user.gramId = req.body.gramId || user.gramId;
     user.isApproved = req.body.isApproved === true ? true : false;
 
     const updatedUser = await user.save();
@@ -74,6 +76,8 @@ const updateStory = asyncHandler(async (req, res) => {
       story: updatedUser.story,
       cure: updatedUser.cure,
       impact: updatedUser.impact,
+      photo: updatedUser.photo,
+      gramId: updatedUser.gramId,
       isApproved: updatedUser.isApproved,
     });
   } else {

@@ -4,7 +4,7 @@ import { Table, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-import { listUsers } from "../actions/userActions";
+import { listUsers, deleteUser } from "../actions/userActions";
 import { useNavigate } from "react-router-dom";
 
 const UserListScreen = () => {
@@ -17,13 +17,22 @@ const UserListScreen = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const userDelete = useSelector((state) => state.userDelete);
+  const { success: successDelete } = userDelete;
+
+  const deleteHandler = (id) => {
+    if (window.confirm("Are you sure you want to delete that user?")) {
+      dispatch(deleteUser(id));
+    }
+  };
+
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
       dispatch(listUsers());
     } else {
       navigate("/login");
     }
-  }, [dispatch, navigate, userInfo]);
+  }, [dispatch, navigate, userInfo, successDelete]);
 
   return (
     <>
@@ -88,6 +97,15 @@ const UserListScreen = () => {
                       </Button>
                     </LinkContainer>
                   )}
+                </td>
+                <td>
+                  <Button
+                    variant="danger"
+                    className="btn-sm"
+                    onClick={() => deleteHandler(user._id)}
+                  >
+                    <i className="fas fa-trash"></i>
+                  </Button>
                 </td>
                 <td>{user.diagnosedOn}</td>
                 <td>{user.city}</td>

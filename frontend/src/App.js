@@ -27,8 +27,7 @@ const App = () => {
             <Route path="/about-us" element={<AboutUsScreen />} />
             <Route path="/login" element={<LoginScreen />} />
             <Route path="/signup" element={<SignupScreen />} />
-            <Route path="/post-story" element={<PostStoryScreen />} />
-
+            <Route path="/users/:id" element={<PostStoryScreen />} />
             <Route path="/ai-stories">
               <Route index element={<AiStoriesScreen />} />
               <Route path=":id" element={<AiStoryScreen />} />

@@ -1,4 +1,8 @@
 import {
+  POST_STORY_FAIL,
+  POST_STORY_REQUEST,
+  POST_STORY_SUCCESS,
+  POST_STORY_RESET,
   USER_DETAILS_FAIL,
   USER_DETAILS_REQUEST,
   USER_DETAILS_RESET,
@@ -14,6 +18,9 @@ import {
   USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
+  USER_DELETE_REQUEST,
+  USER_DELETE_SUCCESS,
+  USER_DELETE_FAIL,
 } from "../constants/userConstants";
 
 export const userLoginReducer = (state = {}, action) => {
@@ -71,6 +78,36 @@ export const userListReducer = (state = { users: [] }, action) => {
       return { loading: false, error: action.payload };
     case USER_LIST_RESET:
       return { users: [] };
+    default:
+      return state;
+  }
+};
+
+export const postStoryReducer = (state = {}, action) => {
+  switch (action.type) {
+    case POST_STORY_REQUEST:
+      return { loading: true };
+    case POST_STORY_SUCCESS:
+      return { loading: false, postStoryMessage: action.payload };
+    case POST_STORY_FAIL:
+      return { loading: false, error: action.payload };
+    case POST_STORY_RESET:
+      return {};
+    case USER_LOGOUT:
+      return {};
+    default:
+      return state;
+  }
+};
+
+export const userDeleteReducer = (state = {}, action) => {
+  switch (action.type) {
+    case USER_DELETE_REQUEST:
+      return { loading: true };
+    case USER_DELETE_SUCCESS:
+      return { loading: false, success: true };
+    case USER_DELETE_FAIL:
+      return { loading: false, error: action.payload };
     default:
       return state;
   }

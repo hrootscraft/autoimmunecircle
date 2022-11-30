@@ -9,6 +9,7 @@ import {
   STORY_UPDATE_SUCCESS,
   STORY_UPDATE_FAIL,
   STORY_UPDATE_RESET,
+  STORY_DETAILS_RESET,
 } from "../constants/storyConstants";
 
 export const storyListReducer = (state = { stories: [] }, action) => {
@@ -35,6 +36,8 @@ export const storyDetailsReducer = (state = { story: {} }, action) => {
       return { loading: false, story: action.payload };
     case STORY_DETAILS_FAIL:
       return { loading: false, error: action.payload };
+    case STORY_DETAILS_RESET:
+      return { story: {} };
     default:
       return state;
   }

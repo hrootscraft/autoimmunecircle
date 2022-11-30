@@ -51,9 +51,6 @@ export const listStoryDetails = (id) => async (dispatch) => {
   }
 };
 
-// pending
-export const postStory = () => async (dispatch) => {};
-
 export const updateStory = (user) => async (dispatch, getState) => {
   try {
     dispatch({
@@ -82,6 +79,7 @@ export const updateStory = (user) => async (dispatch, getState) => {
     dispatch({ type: STORY_DETAILS_SUCCESS, payload: data });
 
     dispatch({ type: STORY_DETAILS_RESET });
+    document.location.href = "/admin";
   } catch (error) {
     const message =
       error.response && error.response.data.message
