@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Row, Col, Image } from "react-bootstrap";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -13,17 +13,21 @@ const AiStoryScreen = () => {
   const storyDetails = useSelector((state) => state.storyDetails);
   const { loading, error, story } = storyDetails;
 
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
+  // const userLogin = useSelector((state) => state.userLogin);
+  // const { userInfo } = userLogin;
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (!userInfo) {
+  //     navigate("/login");
+  //   } else {
+  //     dispatch(listStoryDetails(id));
+  //   }
+  // }, [userInfo, navigate, dispatch, id]);
+
   useEffect(() => {
-    if (!userInfo) {
-      navigate("/login");
-    } else {
-      dispatch(listStoryDetails(id));
-    }
-  }, [userInfo, navigate, dispatch, id]);
+    dispatch(listStoryDetails(id));
+  }, [id, dispatch]);
 
   return (
     <>
@@ -33,38 +37,41 @@ const AiStoryScreen = () => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
-          <Row
-            className="text-center p-3"
-            style={{ backgroundColor: "#FBF8F5" }}
-          >
+          <Row>
             <Col md={6}>
-              <Image fluid src={story.photo} />
+              <Row>
+                <h4 style={{ color: "#58849B" }}>{story.name}</h4>
+                <p>
+                  {story.disease} <br />
+                  Diagnosed On: {story.diagnosedOn} <br />
+                  Location: {story.city}, {story.country}
+                </p>
+              </Row>
+              <Row>
+                <h4 style={{ color: "#FBA474" }}>About Me</h4>
+                <p>{story.about}</p>
+              </Row>
+              <Row>
+                <Image className="mb-5" fluid src={story.photo} />
+              </Row>
             </Col>
-            <Col md={6} className="my-auto p-3">
-              <h4 style={{ color: "#58849B" }}>{story.name}</h4>
-              <p>{story.disease}</p>
-              <p>From: {story.diagnosedOn}</p>
-              <p>
-                Location: {story.city}, {story.country}
-              </p>
+
+            <Col md={6}>
+              <Row>
+                <h4 style={{ color: "#FBA474" }}>My Autoimmune Story</h4>
+                <p>{story.story}</p>
+              </Row>
+              <Row>
+                <h4 style={{ color: "#FBA474" }}>How I reduced symptoms ?</h4>
+                <p>{story.cure}</p>
+              </Row>
+              <Row>
+                <h4 style={{ color: "#FBA474" }}>
+                  How has having an Autoimmune disorder changed my life ?
+                </h4>
+                <p>{story.impact}</p>
+              </Row>
             </Col>
-          </Row>
-          <Row className="text-center m-3">
-            <p>{story.about}</p>
-          </Row>
-          <Row className="text-center m-3">
-            <h4 style={{ color: "#FBA474" }}>My Autoimmune Story</h4>
-            {story.story}
-          </Row>
-          <Row className="text-center m-3">
-            <h4 style={{ color: "#FBA474" }}>How I reduced symptoms ?</h4>
-            {story.cure}
-          </Row>
-          <Row className="text-center m-3">
-            <h4 style={{ color: "#FBA474" }}>
-              How has having an Autoimmune disorder changed my life ?
-            </h4>
-            {story.impact}
           </Row>
         </>
       )}

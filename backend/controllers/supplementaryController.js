@@ -29,6 +29,28 @@ const getFounderStory = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Get top 3 approved stories that are updated latest
+// @route   /api/ai-stories/approved-carousel
+// @access  Public
+const getTopStories = asyncHandler(async (req, res) => {
+  const users = await User.find(
+    { isApproved: true },
+    {
+      _id: 1,
+      name: 1,
+      city: 1,
+      country: 1,
+      disease: 1,
+      about: 1,
+      diagnosedOn: 1,
+      photo: 1,
+    }
+  )
+    .sort({ updatedAt: -1 })
+    .limit(3);
+  res.json(users);
+});
 
+export { getFounderStory, getTopStories };
 
-export { getFounderStory };
+// when there's Cast to ObjectId error it's probably the mismatching of routes in backend or priority of placement of routes in frontend

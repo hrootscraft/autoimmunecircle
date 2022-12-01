@@ -10,6 +10,9 @@ import {
   STORY_UPDATE_FAIL,
   STORY_UPDATE_RESET,
   STORY_DETAILS_RESET,
+  STORY_TOP_REQUEST,
+  STORY_TOP_SUCCESS,
+  STORY_TOP_FAIL,
 } from "../constants/storyConstants";
 
 export const storyListReducer = (state = { stories: [] }, action) => {
@@ -55,6 +58,19 @@ export const storyUpdateReducer = (state = { story: {} }, action) => {
       return { loading: false, error: action.payload };
     case STORY_UPDATE_RESET:
       return { story: {} };
+    default:
+      return state;
+  }
+};
+
+export const storyTopReducer = (state = { users: [] }, action) => {
+  switch (action.type) {
+    case STORY_TOP_REQUEST:
+      return { loading: true, users: [] };
+    case STORY_TOP_SUCCESS:
+      return { loading: false, users: action.payload };
+    case STORY_TOP_FAIL:
+      return { loading: false, error: action.payload };
     default:
       return state;
   }

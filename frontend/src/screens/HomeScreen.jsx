@@ -1,11 +1,12 @@
 import React from "react";
-import { Row, Col, Image, Button } from "react-bootstrap";
+import { Row, Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import StoryCarousel from "../components/StoryCarousel";
 
 const HomeScreen = () => {
   return (
     <>
-      <Row className="text-center">
+      <Row className="">
         <Col md={6}>
           <Image
             fluid
@@ -27,9 +28,7 @@ const HomeScreen = () => {
             stories and support!
           </p>
           <Link to={`/signup`}>
-            <Button style={{ backgroundColor: "#FBA474" }}>
-              Join Us Today
-            </Button>
+            <Image src="/images/buttons/homepage-join-us.svg" />
           </Link>
         </Col>
       </Row>
@@ -39,7 +38,18 @@ const HomeScreen = () => {
         style={{ backgroundColor: "#FBF8F5" }}
       >
         <Col md={6}>
-          <h4 style={{ color: "#58849B" }}>Autoimmune Diseases</h4>
+          <div style={{ border: " 0.1rem solid #FBA474", padding: "2rem" }}>
+            <h4>Do you know ?</h4>
+            <p style={{ fontSize: "2rem" }}>4%</p>
+            <p>of the world’s population is affected by one of more than</p>
+            <p style={{ fontSize: "1.5rem" }}>
+              80 different Autoimmune Diseases!
+            </p>
+          </div>
+        </Col>
+
+        <Col md={6}>
+          <h4 style={{ color: "#58849B", marginTop: "2rem" }}>Autoimmune Diseases</h4>
           <p className="mt-3">
             'Autoimmune' represents a category of at least a hundred diseases.
             An Autoimmune problem develops when our bodies make too many killer
@@ -50,20 +60,8 @@ const HomeScreen = () => {
             inflammation and damage to cells & organs.
           </p>
           <Link to="/about-ai">
-            <Button style={{ backgroundColor: "#FBF8F5", color: "#58849B" }}>
-              Learn More
-            </Button>
+            <Image src="/images/buttons/homepage-learn-more.svg" />
           </Link>
-        </Col>
-        <Col md={6}>
-          <div style={{ border: " 0.1rem solid #FBA474", padding: "2rem" }}>
-            <h4>Do you know ?</h4>
-            <p style={{ fontSize: "2rem" }}>4%</p>
-            <p>of the world’s population is affected by one of more than</p>
-            <p style={{ fontSize: "1.5rem" }}>
-              80 different Autoimmune Diseases!
-            </p>
-          </div>
         </Col>
       </Row>
 
@@ -131,6 +129,8 @@ const HomeScreen = () => {
           <p>Go on! its completely free</p>
         </div>
       </Row>
+
+      <StoryCarousel />
     </>
   );
 };

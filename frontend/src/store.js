@@ -9,6 +9,7 @@ import {
   storyListReducer,
   storyDetailsReducer,
   storyUpdateReducer,
+  storyTopReducer,
 } from "./reducers/storyReducers";
 import {
   userLoginReducer,
@@ -29,6 +30,7 @@ const reducer = combineReducers({
   userDetails: userDetailsReducer,
   postStory: postStoryReducer,
   userDelete: userDeleteReducer,
+  storyTop: storyTopReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

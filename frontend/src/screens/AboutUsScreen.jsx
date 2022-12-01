@@ -36,17 +36,16 @@ const AboutUsScreen = () => {
           border: " 0.1rem solid #FBA474",
           padding: "2rem",
         }}
-        className="mt-5 text-center"
+        className="mt-5"
       >
-        <p style={{ fontSize: "1.2rem", color: "#58849B" }}>
-          ABOUT THE FOUNDER
-        </p>
-
-        <Col md={6} sm={12} className="my-auto">
-          <Image height={300} width={300} fluid src={founder.photo} />
+        <Col md={4} sm={12} className="my-auto">
+          <p style={{ fontSize: "1.2rem", color: "#58849B" }}>
+            ABOUT THE FOUNDER
+          </p>
+          <Image height={300} fluid src={founder.photo} />
         </Col>
 
-        <Col className="my-auto" md={6} sm={12}>
+        <Col className="my-auto" md={8} sm={12}>
           <h4 className="my-3">{founder.name}</h4>
           <p>
             <span className="fw-bold">Type</span> : {founder.disease} <br />
@@ -136,6 +135,12 @@ const AboutUsScreen = () => {
           request any improvements?
         </p>
         <p>Simply drop us a mail or dm on gram and we'll get back to you.</p>
+        <div style={{marginTop: "3rem"}}>
+          <h6>
+            Instagram Id: @autoimmune_circle <br /> Mail Id:
+            autoimmunecircle@gmail.com
+          </h6>
+        </div>
       </Row>
     </>
   );

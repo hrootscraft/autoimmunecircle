@@ -173,7 +173,10 @@ const PostStoryScreen = () => {
               <Form.Check
                 type="checkbox"
                 required
-                label="I give permission for AUTOIMMUNECIRCLE to share this information on the @Autoimmunecircle Instagram feed and/or on their website."
+                label="I permit AUTOIMMUNECIRCLE to share this information on their
+                social media pages and/or on their website www.autoimmunecircle.org .               
+                I also understand that Autoimmune Circle holds the right to modify specific information provided by me which may 
+                be inappropriate for the website/social media."
               />
             </Form.Group>
 
