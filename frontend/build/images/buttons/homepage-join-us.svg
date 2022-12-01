@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="239" height="55.9" viewBox="0 0 239 55.9">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d9f6fd;
+      }
+
+      .cls-2 {
+        fill: #fba474;
+      }
+
+      .cls-3 {
+        fill: #58849b;
+        font-size: 22px;
+        font-family: Muli;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+      }
+    </style>
+  </defs>
+  <g id="Group_62" data-name="Group 62" transform="translate(-0.014 0.265)">
+    <g id="Group_110" data-name="Group 110" transform="translate(9.966 5.635)">
+      <path id="Path_71" data-name="Path 71" class="cls-1" d="M0,0H229.049V50H0Z"/>
+    </g>
+    <path id="Rectangle_20" data-name="Rectangle 20" class="cls-2" d="M2,2V48H227V2H2M0,0H229V50H0Z" transform="translate(0.014 -0.265)"/>
+    <text id="Join_Us_Today" data-name="Join Us Today" class="cls-3" transform="translate(124.014 36.735)"><tspan x="-86.295" y="0">Join Us Today</tspan></text>
+  </g>
+</svg>
