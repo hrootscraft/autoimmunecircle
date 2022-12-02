@@ -3,6 +3,11 @@ import asyncHandler from "express-async-handler";
 import generateToken from "../utils/generateToken.js";
 import validator from "validator";
 
+const checkPassword = (str) => {
+  var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+  return re.test(str);
+};
+
 // @desc    Auth user & get token
 // @route   POST /api/users/login
 // @access  Public
@@ -68,6 +73,14 @@ const registerUser = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Invalid email");
   }
+
+  if (!checkPassword(password)) {
+    res.status(400);
+    throw new Error(
+      "Password should be atleast 8 characters long with atleast 1 uppercase, 1 lowercase alphabet and 1 special character"
+    );
+  }
+
   if (password !== confirmPassword) {
     res.status(400);
     throw new Error("Passwords don't match");
