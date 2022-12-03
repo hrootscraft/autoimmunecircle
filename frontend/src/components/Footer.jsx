@@ -37,29 +37,35 @@ const Footer = () => {
           <Col md={4} className="text-center py-3">
             <h4 style={{ color: "#FBF8F5" }}>DISCLAIMER</h4>
             <p>
-              The main treatment for autoimmune diseases is with medications
-              that bring down inflammation and calm the overactive immune
-              response. Treatments can also help relieve symptoms. Treatments
-              can last from a few months to few years depending on your body's
-              reaction{" "}
+              All content found on the AuttoimmuneIndia.org website is for
+              informational purposes only.
+            </p>
+            <p>
+              The Content is not intended to be a substitute for professional
+              medical advice, diagnosis, or treatment. See MEDICAL DISCLAIMER
+              for additional information.
             </p>
           </Col>
 
           <Col md={4} className="text-center py-3 my-auto">
-            <Link style={{textDecoration: "none"}} to={"/about-ai"}>
+            <Link style={{ textDecoration: "none" }} to={"/about-ai"}>
               <p style={{ color: "#FBF8F5", fontWeight: "1.2rem" }}>ABOUT AI</p>
             </Link>
 
-            <Link style={{textDecoration: "none"}} to={"/ai-stories/page/1"}>
-              <p style={{ color: "#FBF8F5", fontWeight: "1.2rem" }}>AI STORIES</p>
+            <Link style={{ textDecoration: "none" }} to={"/ai-stories/page/1"}>
+              <p style={{ color: "#FBF8F5", fontWeight: "1.2rem" }}>
+                AI STORIES
+              </p>
             </Link>
 
-            <Link style={{textDecoration: "none"}} to={"/about-us"}>
+            <Link style={{ textDecoration: "none" }} to={"/about-us"}>
               <p style={{ color: "#FBF8F5", fontWeight: "1.2rem" }}>ABOUT US</p>
             </Link>
 
-            <Link style={{textDecoration: "none"}} to={"/community"}>
-              <p style={{ color: "#FBF8F5", fontWeight: "1.2rem" }}>COMMUNITY</p>
+            <Link style={{ textDecoration: "none" }} to={"/community"}>
+              <p style={{ color: "#FBF8F5", fontWeight: "1.2rem" }}>
+                COMMUNITY
+              </p>
             </Link>
           </Col>
         </Row>

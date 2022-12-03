@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Image } from "react-bootstrap";
+import { Row, Col, Image, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -31,17 +31,18 @@ const AboutUsScreen = () => {
         </p>
       </Row>
 
+      <Row className="text-center mt-5">
+        <h3 style={{ color: "#58849B" }}>ABOUT THE FOUNDER</h3>
+      </Row>
+
       <Row
         style={{
           border: " 0.1rem solid #FBA474",
           padding: "2rem",
         }}
-        className="mt-5"
+        className="mt-3"
       >
         <Col md={4} sm={12} className="my-auto">
-          <p style={{ fontSize: "1.2rem", color: "#58849B" }}>
-            ABOUT THE FOUNDER
-          </p>
           <Image height={300} fluid src={founder.photo} />
         </Col>
 
@@ -49,14 +50,16 @@ const AboutUsScreen = () => {
           <h4 className="my-3">{founder.name}</h4>
           <p>
             <span className="fw-bold">Type</span> : {founder.disease} <br />
-            <span className="fw-bold">Diagnosed</span> :{founder.diagnosedOn}{" "}
+            <span className="fw-bold">Diagnosed On</span> : {founder.diagnosedOn}{" "}
             <br />
-            <span className="fw-bold">From</span> : {founder.city},
+            <span className="fw-bold">From</span> : {founder.city}, {" "}
             {founder.country}
           </p>
           <p>{founder.story}</p>
           <Link to={`/ai-stories/${founder._id}`}>
-            <Image src="/images/buttons/about-us-read-full-s.svg" />
+            <Button style={{ backgroundColor: "#FBA474" }}>
+              Read Story
+            </Button>
           </Link>
         </Col>
       </Row>
@@ -78,7 +81,7 @@ const AboutUsScreen = () => {
           and we respect that. So don't worry we've got your back!
         </p>
         <Link to={`/signup`}>
-          <Image className="mt-2" src="/images/buttons/about-us-join-us.svg" />
+          <Image className="mt-2" src="/images/buttons/join-us.svg" />
         </Link>
       </Row>
 
@@ -135,10 +138,10 @@ const AboutUsScreen = () => {
           request any improvements?
         </p>
         <p>Simply drop us a mail or dm on gram and we'll get back to you.</p>
-        <div style={{marginTop: "3rem"}}>
+        <div style={{ marginTop: "3rem" }}>
           <h6>
-            Instagram Id: @autoimmune_circle <br /> Mail Id:
-            autoimmunecircle@gmail.com
+            Instagram Id: @autoimmune_circle <br />
+            <br /> Mail Id: autoimmunecircle@gmail.com
           </h6>
         </div>
       </Row>

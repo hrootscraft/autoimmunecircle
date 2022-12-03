@@ -6,7 +6,6 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { getUserDetails } from "../actions/userActions";
 import { STORY_UPDATE_RESET } from "../constants/storyConstants";
-import { Link } from "react-router-dom";
 import { updateStory } from "../actions/storyActions";
 import axios from "axios";
 
@@ -88,24 +87,27 @@ const UserStoryEditScreen = () => {
         setStory(user.story);
         setCure(user.cure);
         setImpact(user.impact);
-        setImpact(user.photo);
-        setImpact(user.gramId);
+        setPhoto(user.photo);
+        setGramId(user.gramId);
         setIsApproved(user.isApproved);
       }
     }
   }, [dispatch, navigate, userId, user, successUpdate]);
   return (
     <>
-      <Link to="/admin" className="btn btn-light my-3">
+      <Button
+        onClick={() => navigate(-1)}
+        style={{ backgroundColor: "#FBA474", margin: "2rem 2rem 2rem 0" }}
+      >
         Go Back
-      </Link>
+      </Button>
       <Row
         style={{
           border: " 0.1rem solid #FBA474",
           padding: "2rem",
         }}
       >
-        <h3>EDIT STORY</h3>
+        <h5>EDIT STORY</h5>
         {loadingUpdate && <Loader />}
         {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
         {loading ? (
@@ -119,15 +121,17 @@ const UserStoryEditScreen = () => {
                 <Image fluid src={user.photo} alt="User Image"></Image>
               </Col>
               <Col md={6} className="p-2">
-                <h5>Name: {user.name}</h5>
-                <h5>DOB: {user.dob}</h5>
-                <h5>Email: {user.email}</h5>
-                <h5>Gender: {user.gender}</h5>
-                <h5>Disease: {user.disease}</h5>
-                <h5>Diagnosed On: {user.diagnosedOn}</h5>
-                <h5>City: {user.city}</h5>
-                <h5>State: {user.state}</h5>
-                <h5>Country: {user.country}</h5>
+                <p>
+                  Name: {user.name} <br />
+                  DOB: {user.dob} <br />
+                  Email: {user.email} <br />
+                  Gender: {user.gender} <br />
+                  Disease: {user.disease} <br />
+                  Diagnosed On: {user.diagnosedOn} <br />
+                  City: {user.city} <br />
+                  State: {user.state} <br />
+                  Country: {user.country}
+                </p>
               </Col>
             </Row>
             <Row className="mt-3">

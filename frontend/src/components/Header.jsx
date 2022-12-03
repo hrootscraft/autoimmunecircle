@@ -40,14 +40,14 @@ const Header = () => {
               <LinkContainer to="/community">
                 <Nav.Link>Community</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/about-us">
-                <Nav.Link>About us</Nav.Link>
+              <LinkContainer to="/ai-stories/page/1">
+                <Nav.Link>AI Stories</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/about-ai">
                 <Nav.Link>About AI</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/ai-stories/page/1">
-                <Nav.Link>AI Stories</Nav.Link>
+              <LinkContainer to="/about-us">
+                <Nav.Link>About us</Nav.Link>
               </LinkContainer>
 
               {userInfo ? (

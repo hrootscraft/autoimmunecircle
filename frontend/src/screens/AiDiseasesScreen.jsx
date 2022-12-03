@@ -6,7 +6,9 @@ const diseasesScreen = () => {
   return (
     <>
       <Row className="mt-5 text-center">
-        <h4 style={{ color: "#58849B" }}>What are Autoimmune Diseases ?</h4>
+        <h4 style={{ color: "#58849B", marginBottom: "2rem" }}>
+          What are Autoimmune Diseases ?
+        </h4>
         <p>
           'Autoimmune' represents a category of at least a hundred diseases. An
           Autoimmune problem develops when our bodies make too many killer T
@@ -30,7 +32,7 @@ const diseasesScreen = () => {
         className="text-center py-5 my-5"
         style={{ backgroundColor: "#FBF8F5" }}
       >
-        <h4 style={{ color: "#58849B" }}>Common Types</h4>
+        <h4 style={{ color: "#58849B", marginBottom: "3rem" }}>Common Types</h4>
 
         <Row>
           <Col md={3} sm={6} xs={6}>
@@ -150,13 +152,15 @@ const diseasesScreen = () => {
 
         <p className="mt-5">
           There are more than 80 types of autoimmune diseases that attack all
-          parts of the body and some of them have similar symptoms. Here, we
-          have listed some of the common types.
+          parts of the body and some of them have similar symptoms. <br />
+          Here, we have listed some of the common types.
         </p>
       </Row>
 
       <Row className="text-center m-4">
-        <h4 style={{ color: "#58849B" }}>Which doctor treats Ai Diseases ?</h4>
+        <h4 style={{ color: "#58849B", marginBottom: "2rem" }}>
+          Which doctor treats Ai Diseases ?
+        </h4>
         <p>
           There is no one doctor who treats Autoimmune diseases. Which doctor
           you need depends on which body systems are affected by your particular
@@ -166,8 +170,10 @@ const diseasesScreen = () => {
         </p>
       </Row>
 
-      <Row className="text-center m-4">
-        <h4 style={{ color: "#58849B" }}>NEED DOCTOR RECOMMENDATIONS ?</h4>
+      <Row className="text-center m-4 py-5" style={{ backgroundColor: "#FBF8F5" }} >
+        <h4 style={{ color: "#58849B", marginBottom: "2rem" }}>
+          NEED DOCTOR RECOMMENDATIONS ?
+        </h4>
         <p>
           By joining our community, you'll be able to talk and get first-hand
           recommendations of doctors from people going through the same
@@ -175,16 +181,17 @@ const diseasesScreen = () => {
         </p>
         <Row className="text-center m-4">
           <Link to={`/signup`}>
-            <Image src="/images/buttons/about-ai-ask-away.svg" />
+            <Image src="/images/buttons/join-us.svg" />
           </Link>
         </Row>
       </Row>
 
       <Row
         className="text-center py-3 my-3"
-        style={{ backgroundColor: "#D9F6FD" }}
       >
-        <h4 style={{ color: "#58849B" }}>How long do treatments last ?</h4>
+        <h4 style={{ color: "#58849B", marginBottom: "2rem" }}>
+          How long do treatments last ?
+        </h4>
         <p>
           The main treatment for autoimmune diseases is with medications that
           bring down inflammation and calm the overactive immune response.

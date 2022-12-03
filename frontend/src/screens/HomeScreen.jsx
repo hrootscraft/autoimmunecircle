@@ -28,7 +28,7 @@ const HomeScreen = () => {
             stories and support!
           </p>
           <Link to={`/signup`}>
-            <Image src="/images/buttons/homepage-join-us.svg" />
+            <Image src="/images/buttons/join-us.svg" />
           </Link>
         </Col>
       </Row>
@@ -49,7 +49,9 @@ const HomeScreen = () => {
         </Col>
 
         <Col md={6}>
-          <h4 style={{ color: "#58849B", marginTop: "2rem" }}>Autoimmune Diseases</h4>
+          <h4 style={{ color: "#58849B", marginTop: "2rem" }}>
+            Autoimmune Diseases
+          </h4>
           <p className="mt-3">
             'Autoimmune' represents a category of at least a hundred diseases.
             An Autoimmune problem develops when our bodies make too many killer
@@ -60,7 +62,7 @@ const HomeScreen = () => {
             inflammation and damage to cells & organs.
           </p>
           <Link to="/about-ai">
-            <Image src="/images/buttons/homepage-learn-more.svg" />
+            <Image src="/images/buttons/learn-more.svg" />
           </Link>
         </Col>
       </Row>
@@ -123,13 +125,22 @@ const HomeScreen = () => {
           <Link to={`/signup`}>
             <Image
               className="mb-3"
-              src="/images/buttons/homepage-join-us.svg"
+              src="/images/buttons/join-us.svg"
             />
           </Link>
           <p>Go on! its completely free</p>
         </div>
       </Row>
 
+      <Row className="text-center mt-5">
+        <h3 style={{ color: "#58849B" }} className="mt-5 mb-3">
+          Autoimmune Stories
+        </h3>
+        <p>
+          We hope that these stories remind you that you are not alone in the
+          bad bits of your journey, nor in the good ones!
+        </p>
+      </Row>
       <StoryCarousel />
     </>
   );

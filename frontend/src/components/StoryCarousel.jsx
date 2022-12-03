@@ -25,7 +25,7 @@ const ProductCarousel = () => {
       {users.map((user) => (
         <Carousel.Item style={{ backgroundColor: "white" }} key={user._id}>
           <Link to={`/ai-stories/${user._id}`}>
-            <Image src={user.photo} alt={user.name} fluid />
+            <Image className="mt-5" src={user.photo} alt={user.name} fluid />
             <Carousel.Caption className="carousel-caption">
               <h4>
                 {user.name} <br /> {user.disease}

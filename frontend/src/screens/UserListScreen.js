@@ -40,7 +40,7 @@ const UserListScreen = () => {
 
   return (
     <>
-      <h3>Users</h3>
+      <h4>Users</h4>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -56,6 +56,7 @@ const UserListScreen = () => {
                 <th>STORY APPROVED</th>
                 <th></th>
                 <th></th>
+                <th>DISEASE</th>
                 <th>DIAGNOSED ON</th>
                 <th>CITY</th>
                 <th>STATE</th>
@@ -109,6 +110,7 @@ const UserListScreen = () => {
                       <i className="fas fa-trash"></i>
                     </Button>
                   </td>
+                  <td>{user.disease}</td>
                   <td>{user.diagnosedOn}</td>
                   <td>{user.city}</td>
                   <td>{user.state}</td>

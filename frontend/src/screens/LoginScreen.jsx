@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Row, Image, Col } from "react-bootstrap";
+import { Form, Button, Row, Col } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
@@ -32,20 +32,29 @@ const LoginScreen = () => {
 
   return (
     <>
-      <h3
-        style={{
-          color: "#FBA474",
-          fontSize: "1.5rem",
-          marginTop: "2rem",
-        }}
-      >
-        Welcome Back!
-      </h3>
+      <Row>
+        <h3
+          style={{
+            color: "#FBA474",
+            fontSize: "1.5rem",
+            marginTop: "2rem",
+          }}
+        >
+          Welcome Back!
+        </h3>
+      </Row>
       <Row>
         <Col md={6}>
           {error && <Message variant="danger">{error}</Message>}
           {loading && <Loader />}
-          <Form className="mt-5" onSubmit={submitHandler}>
+          <Form
+            style={{
+              border: " 0.1rem solid #FBA474",
+              padding: "2rem",
+            }}
+            className="mt-5"
+            onSubmit={submitHandler}
+          >
             <Form.Group className="mb-3">
               <Form.Control
                 type="text"
@@ -64,21 +73,21 @@ const LoginScreen = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
-            <Button style={{ backgroundColor: "#58849B" }} type="submit">
+            <Button style={{ backgroundColor: "#FBA474" }} type="submit">
               LOGIN
             </Button>
           </Form>
         </Col>
 
         <Col md={6}>
-          <Row className="p-5 mt-2" style={{ backgroundColor: "#FBF8F5" }}>
+          <Row className="p-5 mt-5" style={{ backgroundColor: "#FBF8F5" }}>
             <h4 style={{ color: "#FBA474" }}>NEW HERE ?</h4>
-            <p>
+            <p style={{ color: "#58849B" }}>
               We welcome you with open arms! Sign up to join our free exclusive
               member group
             </p>
             <Link to={redirect ? `/signup?redirect=${redirect}` : "/signup"}>
-              <Image width={200} src="/images/buttons/signup-blue-button.svg" />
+              <Button style={{ backgroundColor: "#FBA474" }}>SIGN UP</Button>
             </Link>
           </Row>
         </Col>
