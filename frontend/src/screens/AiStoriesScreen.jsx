@@ -68,7 +68,7 @@ const AiStoriesScreen = () => {
         </Link>
         <p>It might help someone else...</p>
       </Row>
-      <Row className="text-center">
+      <Row className="text-center mt-5 pt-5">
         <h4>PRIVACY</h4>
         <p>
           All the names and photos, shared by people on their stories, are taken

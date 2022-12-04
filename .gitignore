@@ -28,6 +28,3 @@ yarn-error.log*
 package-lock.json
 .vercel
 vercel.json
-
-# buttons : small to be added
-# share story: svg updated size

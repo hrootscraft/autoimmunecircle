@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -11,7 +11,7 @@ const Footer = () => {
         <Row>
           <Col md={4} className="text-center py-3 my-auto">
             <Link to={"/signup"}>
-              <Image height="50" src="/images/buttons/footer-join-us.svg" />
+              <Button className="rounded-5 px-5" style={{ backgroundColor: "#FBA474" }}>SIGN UP</Button>
             </Link>
             <Row className="p-2 mt-3">
               <Col className="ms-5">

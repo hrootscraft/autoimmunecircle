@@ -26,10 +26,9 @@ const Header = () => {
           <LinkContainer to="/">
             <Navbar.Brand>
               <Image
+                width={200}
                 alt="AIC"
-                src="/images/homepage/logo.png"
-                height={100}
-                width={100}
+                src="/images/homepage/logo-website.png"
               />
             </Navbar.Brand>
           </LinkContainer>

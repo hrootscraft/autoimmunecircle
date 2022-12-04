@@ -36,117 +36,71 @@ const diseasesScreen = () => {
 
         <Row>
           <Col md={3} sm={6} xs={6}>
-            <Row>
-              <Image
-                className="my-2 mx-2"
-                height={100}
-                width={100}
-                src="/images/diseases/celliac-disease.svg"
-              />
-              <Row>
-                <h6>Celliac Disease</h6>
-              </Row>
-            </Row>
+            <Image
+              className="my-2 mx-2"
+              height={150}
+              width={150}
+              src="/images/diseases/celliac-disease.svg"
+            />
           </Col>
 
           <Col md={3} sm={6} xs={6}>
-            <Row>
-              <Image
-                className="my-2 mx-2"
-                height={100}
-                width={100}
-                src="/images/diseases/graves-disease.svg"
-              />
-              <Row>
-                <h6>Graves Disease</h6>
-              </Row>
-            </Row>
+            <Image
+              className="my-2 mx-2"
+              height={150}
+              width={150}
+              src="/images/diseases/graves-disease.svg"
+            />
           </Col>
 
           <Col md={3} sm={6} xs={6}>
-            <Row>
-              <Image
-                className="my-2 mx-2"
-                height={100}
-                width={100}
-                src="/images/diseases/hashimotos-thyroiditis.svg"
-              />
-              <Row>
-                <h6>Hashimoto's Thyroiditis</h6>
-              </Row>
-            </Row>
+            <Image
+              className="my-2 mx-2"
+              height={150}
+              width={150}
+              src="/images/diseases/hashimotos-thyroiditis.svg"
+            />
           </Col>
 
           <Col md={3} sm={6} xs={6}>
-            <Row>
-              <Image
-                className="my-2 mx-2"
-                height={100}
-                width={100}
-                src="/images/diseases/lupus.svg"
-              />
-              <Row>
-                <h6>Lupus</h6>
-              </Row>
-            </Row>
+            <Image className="my-2 mx-2"
+            height={150}
+            width={150} src="/images/diseases/lupus.svg" />
           </Col>
         </Row>
 
         <Row>
           <Col md={3} sm={6} xs={6}>
-            <Row>
-              <Image
-                className="my-2 mx-2"
-                height={100}
-                width={100}
-                src="/images/diseases/multiple-sclerosis.svg"
-              />
-              <Row>
-                <h6>Multiple Sclerosis</h6>
-              </Row>
-            </Row>
+            <Image
+              className="my-2 mx-2"
+              height={150}
+              width={150}
+              src="/images/diseases/multiple-sclerosis.svg"
+            />
           </Col>
 
           <Col md={3} sm={6} xs={6}>
-            <Row>
-              <Image
-                className="my-2 mx-2"
-                height={100}
-                width={100}
-                src="/images/diseases/rheumatoid-artheristis.svg"
-              />
-              <Row>
-                <h6>Rheumatoid Artheristis</h6>
-              </Row>
-            </Row>
+            <Image
+              className="my-2 mx-2"
+              height={150}
+              width={150}
+              src="/images/diseases/rheumatoid-artheristis.svg"
+            />
           </Col>
 
           <Col md={3} sm={6} xs={6}>
-            <Row>
-              <Image
-                className="my-2 mx-2"
-                height={100}
-                width={100}
-                src="/images/diseases/sjogrens-syndrome.svg"
-              />
-              <Row>
-                <h6>Sjogren's Syndrome</h6>
-              </Row>
-            </Row>
+            <Image className="my-2 mx-2"
+            height={150}
+            width={150} src="/images/diseases/sjogrens.svg" />
           </Col>
 
           <Col md={3} sm={6} xs={6}>
-            <Row>
-              <Image
-                className="my-2 mx-2"
-                height={100}
-                width={100}
-                src="/images/diseases/myasthesia-gravis.svg"
-              />
-              <Row>
-                <h6>Myasthesia Gravis</h6>
-              </Row>
-            </Row>
+            <Image
+              className="my-2 mx-2"
+              height={150}
+              width={150}
+              src="/images/diseases/myasthesia.svg"
+            />
           </Col>
         </Row>
 
@@ -170,7 +124,10 @@ const diseasesScreen = () => {
         </p>
       </Row>
 
-      <Row className="text-center m-4 py-5" style={{ backgroundColor: "#FBF8F5" }} >
+      <Row
+        className="text-center m-4 py-5"
+        style={{ backgroundColor: "#FBF8F5" }}
+      >
         <h4 style={{ color: "#58849B", marginBottom: "2rem" }}>
           NEED DOCTOR RECOMMENDATIONS ?
         </h4>
@@ -186,9 +143,7 @@ const diseasesScreen = () => {
         </Row>
       </Row>
 
-      <Row
-        className="text-center py-3 my-3"
-      >
+      <Row className="text-center py-3 my-3">
         <h4 style={{ color: "#58849B", marginBottom: "2rem" }}>
           How long do treatments last ?
         </h4>
