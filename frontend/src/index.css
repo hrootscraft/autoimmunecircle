@@ -2,6 +2,10 @@ main {
   min-height: 100vh;
 }
 
+body {
+  padding-top: 8rem;
+}
+
 /* carousel */
 .carousel-item-next,
 .carousel-item-prev,
@@ -25,9 +29,10 @@ main {
   height: 300px;
   padding: 30px;
   margin: 40px;
-  border-radius: 50%;
+  border-radius: 100%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 5rem;
 }
 .carousel a {
   margin: 0 auto;
@@ -36,4 +41,9 @@ main {
   .carousel-caption h2 {
     font-size: 2.5vw;
   }
+}
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
 }

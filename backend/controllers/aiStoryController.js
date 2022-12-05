@@ -26,6 +26,7 @@ const getApprovedStories = asyncHandler(async (req, res) => {
       photo: 1,
     }
   )
+    .sort({ updatedAt: -1 })
     .limit(pageSize)
     .skip(pageSize * (page - 1));
 

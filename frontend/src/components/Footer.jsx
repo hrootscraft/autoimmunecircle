@@ -11,7 +11,12 @@ const Footer = () => {
         <Row>
           <Col md={4} className="text-center py-3 my-auto">
             <Link to={"/signup"}>
-              <Button className="rounded-5 px-5" style={{ backgroundColor: "#FBA474" }}>SIGN UP</Button>
+              <Button
+                className="rounded-5 px-5"
+                style={{ backgroundColor: "#FBA474" }}
+              >
+                SIGN UP
+              </Button>
             </Link>
             <Row className="p-2 mt-3">
               <Col className="ms-5">
@@ -37,7 +42,7 @@ const Footer = () => {
           <Col md={4} className="text-center py-3">
             <h4 style={{ color: "#FBF8F5" }}>DISCLAIMER</h4>
             <p>
-              All content found on the AuttoimmuneIndia.org website is for
+              All content found on the Autoimmune Circle website is for
               informational purposes only.
             </p>
             <p>

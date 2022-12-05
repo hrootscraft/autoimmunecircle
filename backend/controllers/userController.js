@@ -190,7 +190,7 @@ const postStory = asyncHandler(async (req, res) => {
     }
 
     if (validator.isEmpty(req.body.photo)) {
-      req.body.photo = "/images/users/profile.jpg";
+      req.body.photo = "/images/users/anonymous.png";
     }
 
     user.about = req.body.about || user.about;

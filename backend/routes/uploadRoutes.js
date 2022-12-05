@@ -1,19 +1,9 @@
 import path from "path";
 import express from "express";
 import multer from "multer";
+import sharp from "sharp";
+import fs from "fs";
 const router = express.Router();
-
-const storage = multer.diskStorage({
-  destination(req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename(req, file, cb) {
-    cb(
-      null,
-      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
-    );
-  },
-});
 
 function checkFileType(file, cb) {
   const filetypes = /jpg|jpeg|png/;
@@ -27,6 +17,18 @@ function checkFileType(file, cb) {
   }
 }
 
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/");
+  },
+  filename: (req, file, cb) => {
+    cb(
+      null,
+      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
+    );
+  },
+});
+
 const upload = multer({
   storage,
   fileFilter: function (req, file, cb) {
@@ -35,8 +37,14 @@ const upload = multer({
   limits: { fileSize: 1000000 },
 });
 
-router.post("/", upload.single("image"), (req, res) => {
-  res.send(`/${req.file.path}`);
+router.post("/", upload.single("image"), async (req, res) => {
+  const { filename: image } = req.file;
+  await sharp(req.file.path)
+    .resize(300, 300)
+    .jpeg({ quality: 90 })
+    .toFile(path.resolve(req.file.destination, "resized", image));
+  fs.unlinkSync(req.file.path);
+  res.send("/uploads/resized/" + req.file.filename);
 });
 
 export default router;

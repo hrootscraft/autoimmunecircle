@@ -149,7 +149,7 @@ const PostStoryScreen = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Upload your picture</Form.Label>
+              <Form.Label>Upload your 1:1 image</Form.Label>
               <Form.Control
                 type="file"
                 accept="image/x-png,image/jpg, image/jpeg"

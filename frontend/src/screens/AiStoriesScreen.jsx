@@ -54,25 +54,29 @@ const AiStoriesScreen = () => {
         className="text-center my-5 py-5"
       >
         <h3>IT'S YOUR TURN</h3>
-        <p style={{marginBottom: "2rem"}}>
+        <p style={{ marginBottom: "2rem" }}>
           The most valuable thing you posses is your story. Don't be afraid or
           ashamed to share it because that's what makes you unique.
           <br />
-          Share your
-          story to create an impact today!
+          Share your story to create an impact today!
         </p>
-        <Link
-          to={userLogin && userLogin._id ? `/users/${userInfo._id}` : `/login`}
-        >
-          <Image src={`/images/buttons/share-story.svg`} />
-        </Link>
+        {userInfo && userInfo._id ? (
+          <Link to={`/users/${userInfo._id}`}>
+            <Image src={`/images/buttons/share-story.svg`} />
+          </Link>
+        ) : (
+          <Link to={`/login`}>
+            <Image src={`/images/buttons/share-story.svg`} />
+          </Link>
+        )}
+
         <p>It might help someone else...</p>
       </Row>
       <Row className="text-center mt-5 pt-5">
         <h4>PRIVACY</h4>
         <p>
           All the names and photos, shared by people on their stories, are taken
-          and uploaded strictly by user consent. Autoimmune CIrcle holds the
+          and uploaded strictly by user consent. Autoimmune Circle holds the
           right to modify inappropriate content or images uploaded on this site.
           The content is for informational purposes only and not to be
           substituted for medical advice.

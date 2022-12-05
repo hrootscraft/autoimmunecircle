@@ -21,6 +21,7 @@ const Header = () => {
         variant="dark"
         expand="lg"
         collapseOnSelect
+        className="fixed-top"
       >
         <Container>
           <LinkContainer to="/">

@@ -133,7 +133,7 @@ const diseasesScreen = () => {
         </h4>
         <p>
           By joining our community, you'll be able to talk and get first-hand
-          recommendations of doctors from people going through the same
+          recommendations of <br /> doctors from people going through the same
           Autoimmune condition as yours.
         </p>
         <Row className="text-center m-4">
