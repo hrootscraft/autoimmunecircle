@@ -48,9 +48,9 @@ const CommunityScreen = () => {
           <Col md={4}>
             <h4 style={{ color: "#FBA474" }}>Share Your Story</h4>
             <p>
-              Sometimes all you need is someone to talk to. This is a safe place
-              for you to vent your thoughts and feelings. Remember we are all in
-              this together.
+              Each one of us has a unique story to tell. We are eagerly waiting
+              to hear about your story and navigation through your
+              Autoimmune condition. We're in this together.
             </p>
           </Col>
         </Row>

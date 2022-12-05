@@ -10,21 +10,19 @@ const diseasesScreen = () => {
           What are Autoimmune Diseases ?
         </h4>
         <p>
-          'Autoimmune' represents a category of at least a hundred diseases. An
-          Autoimmune problem develops when our bodies make too many killer T
-          cells or antibodies and then fails to turn it off so the immune
-          reaction doesn't stop. It also happens when the immune cells are
-          attacking your body's own tissues when they should only be attacking
-          outsiders. Put all these problems together and the result is
-          inflammation and damage to cells & organs.
-        </p>
-        <p>
-          Many of the Autoimmune conditions have similar characteristics. They
-          are all serious chronic diseases with an underlying problem in the
-          immune system. The main difference between each type is that the
-          immune cells target and attack tissues in different parts of the body.
-          Many autoimmune diseases are set of by similar triggers such as
-          gluten, heavy metals, toxins, infections, stress.
+          An autoimmune disease is a condition arising from an abnormal immune
+          response to a functioning body part. Nearly any body part can be
+          involved. Autoimmune disease happens when the body's natural defense
+          system can't tell the difference between your own cells and foreign
+          cells, causing the body to mistakenly attack normal cells. When the
+          body senses danger from a virus or infection, the immune system kicks
+          into gear and attacks it. This is called an immune response.
+          Sometimes, healthy cells and tissues are caught up in this response,
+          resulting into autoimmunity. <br /> There are more than 80 types of
+          autoimmune diseases that affect a wide range of body parts. The
+          symptoms depend on the organ/tissue it affects to. Many autoimmune
+          diseases are set of by similar triggers both genetic and environmental
+          such as gluten, heavy metals, toxins, infections, stress etc.
         </p>
       </Row>
 
@@ -33,6 +31,12 @@ const diseasesScreen = () => {
         style={{ backgroundColor: "#FBF8F5" }}
       >
         <h4 style={{ color: "#58849B", marginBottom: "3rem" }}>Common Types</h4>
+
+        <p className="mt-5">
+          There are more than 80 types of autoimmune diseases that attack all
+          parts of the body and some of them have similar symptoms. <br />
+          Here, we have listed some of the common types.
+        </p>
 
         <Row>
           <Col md={3} sm={6} xs={6}>
@@ -63,9 +67,12 @@ const diseasesScreen = () => {
           </Col>
 
           <Col md={3} sm={6} xs={6}>
-            <Image className="my-2 mx-2"
-            height={150}
-            width={150} src="/images/diseases/lupus.svg" />
+            <Image
+              className="my-2 mx-2"
+              height={150}
+              width={150}
+              src="/images/diseases/lupus.svg"
+            />
           </Col>
         </Row>
 
@@ -89,9 +96,12 @@ const diseasesScreen = () => {
           </Col>
 
           <Col md={3} sm={6} xs={6}>
-            <Image className="my-2 mx-2"
-            height={150}
-            width={150} src="/images/diseases/sjogrens.svg" />
+            <Image
+              className="my-2 mx-2"
+              height={150}
+              width={150}
+              src="/images/diseases/sjogrens.svg"
+            />
           </Col>
 
           <Col md={3} sm={6} xs={6}>
@@ -103,12 +113,6 @@ const diseasesScreen = () => {
             />
           </Col>
         </Row>
-
-        <p className="mt-5">
-          There are more than 80 types of autoimmune diseases that attack all
-          parts of the body and some of them have similar symptoms. <br />
-          Here, we have listed some of the common types.
-        </p>
       </Row>
 
       <Row className="text-center m-4">

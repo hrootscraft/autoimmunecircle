@@ -53,13 +53,11 @@ const HomeScreen = () => {
             Autoimmune Diseases
           </h4>
           <p className="mt-3">
-            'Autoimmune' represents a category of at least a hundred diseases.
-            An Autoimmune problem develops when our bodies make too many killer
-            T cells or antibodies and then fails to turn it off so the immune
-            reaction doesn't stop. It also happens when the immune cells are
-            attacking your body's own tissues when they should only be attacking
-            outsiders. Put all these problems together and the result is
-            inflammation and damage to cells & organs.
+            An autoimmune disease is a condition arising from an abnormal immune
+            response to a functioning body part. Nearly any body part can be
+            involved. Autoimmune disease happens when the body's natural defense
+            system can't tell the difference between your own cells and foreign
+            cells, causing the body to mistakenly attack normal cells.
           </p>
           <Link to="/about-ai">
             <Image src="/images/buttons/learn-more.svg" />
@@ -123,10 +121,7 @@ const HomeScreen = () => {
             friends!
           </p>
           <Link to={`/signup`}>
-            <Image
-              className="mb-3"
-              src="/images/buttons/join-us.svg"
-            />
+            <Image className="mb-3" src="/images/buttons/join-us.svg" />
           </Link>
           <p>Go on! its completely free</p>
         </div>

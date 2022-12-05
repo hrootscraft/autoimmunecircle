@@ -20,7 +20,7 @@ const Footer = () => {
             </Link>
             <Row className="p-2 mt-3">
               <Col className="ms-5">
-                <a href="https://www.instagram.com/autoimmune_circle">
+                <a href="https://instagram.com/autoimmune_circle?igshid=YmMyMTA2M2Y=">
                   <Image fluid src="/images/homepage/insta-icon.svg" />
                 </a>
               </Col>
@@ -47,8 +47,7 @@ const Footer = () => {
             </p>
             <p>
               The Content is not intended to be a substitute for professional
-              medical advice, diagnosis, or treatment. See MEDICAL DISCLAIMER
-              for additional information.
+              medical advice, diagnosis, or treatment.
             </p>
           </Col>
 
