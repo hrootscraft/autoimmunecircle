@@ -12,7 +12,7 @@ const CommunityScreen = () => {
         <Col md={6} className="my-auto">
           <h2 style={{ color: "#58849B", marginTop: "3rem" }}>Coming Soon</h2>
           <p>
-            The chats and discussions forum is built built and will be launched
+            The chats and discussions forum is built and will be launched
             very soon. Sign Up to be notified as soon as we go live!
           </p>
           <Link to={`/signup`}>
