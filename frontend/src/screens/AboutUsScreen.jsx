@@ -55,7 +55,7 @@ const AboutUsScreen = () => {
             <span className="fw-bold">From</span> : {founder.city}, {" "}
             {founder.country}
           </p>
-          <p>{founder.story}</p>
+          <p>{founder.about}</p>
           <Link to={`/ai-stories/${founder._id}`}>
             <Button style={{ backgroundColor: "#FBA474" }}>
               Read Story
