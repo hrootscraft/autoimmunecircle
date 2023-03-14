@@ -1,4 +1,2 @@
 # autoimmunecircle
-Platform used to create awareness about autoimmune diseases
-
-Added from autoimmune account
+Platform used to create awareness about autoimmune diseases @ autoimmunecircle.in
