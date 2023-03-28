@@ -26,7 +26,13 @@ const ProductCarousel = () => {
         <Carousel.Item style={{ backgroundColor: "white" }} key={user._id}>
           <Row className="text-center m-auto">
             <Link to={`/ai-stories/${user._id}`}>
-              <Image className="mt-1" src={user.photo} alt={user.name} fluid />
+              <Image
+                loading="lazy"
+                className="mt-1"
+                src={user.photo}
+                alt={user.name}
+                fluid
+              />
               {/* <Carousel.Caption className="carousel-caption">
               <h4>
                 {user.name} <br /> {user.disease}

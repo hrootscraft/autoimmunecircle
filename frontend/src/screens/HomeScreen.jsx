@@ -9,6 +9,7 @@ const HomeScreen = () => {
       <Row className="">
         <Col md={6}>
           <Image
+            loading="lazy"
             fluid
             height={900}
             width={900}
@@ -28,7 +29,7 @@ const HomeScreen = () => {
             stories and support!
           </p>
           <Link to={`/signup`}>
-            <Image src="/images/buttons/join-us.svg" />
+            <Image loading="lazy" src="/images/buttons/join-us.svg" />
           </Link>
         </Col>
       </Row>
@@ -60,7 +61,7 @@ const HomeScreen = () => {
             cells, causing the body to mistakenly attack normal cells.
           </p>
           <Link to="/about-ai">
-            <Image src="/images/buttons/learn-more.svg" />
+            <Image loading="lazy" src="/images/buttons/learn-more.svg" />
           </Link>
         </Col>
       </Row>
@@ -78,6 +79,7 @@ const HomeScreen = () => {
         <Col md={4} sm={4}>
           <Row>
             <Image
+              loading="lazy"
               height={70}
               width={70}
               src="/images/homepage/resources.svg"
@@ -91,6 +93,7 @@ const HomeScreen = () => {
         <Col md={4} sm={4}>
           <Row>
             <Image
+              loading="lazy"
               height={70}
               width={70}
               src="/images/homepage/community.svg"
@@ -103,6 +106,7 @@ const HomeScreen = () => {
         <Col md={4} sm={4}>
           <Row>
             <Image
+              loading="lazy"
               height={70}
               width={70}
               src="/images/homepage/support-icon.svg"
@@ -121,7 +125,11 @@ const HomeScreen = () => {
             friends!
           </p>
           <Link to={`/signup`}>
-            <Image className="mb-3" src="/images/buttons/join-us.svg" />
+            <Image
+              loading="lazy"
+              className="mb-3"
+              src="/images/buttons/join-us.svg"
+            />
           </Link>
           <p>Go on! its completely free</p>
         </div>

@@ -7,7 +7,7 @@ const CommunityScreen = () => {
     <>
       <Row className="text-center my-3 mb-4">
         <Col md={6}>
-          <Image fluid src="/images/homepage/online-world-cuate.svg" />
+          <Image loading="lazy" fluid src="/images/homepage/online-world-cuate.svg" />
         </Col>
         <Col md={6} className="my-auto">
           <h2 style={{ color: "#58849B", marginTop: "3rem" }}>Coming Soon</h2>

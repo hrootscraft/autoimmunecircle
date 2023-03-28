@@ -118,7 +118,12 @@ const UserStoryEditScreen = () => {
           <>
             <Row>
               <Col md={6} className="p-2">
-                <Image fluid src={user.photo} alt="User Image"></Image>
+                <Image
+                  loading="lazy"
+                  fluid
+                  src={user.photo}
+                  alt="User Image"
+                ></Image>
               </Col>
               <Col md={6} className="p-2">
                 <p>

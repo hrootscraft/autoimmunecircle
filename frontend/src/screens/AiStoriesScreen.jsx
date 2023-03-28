@@ -62,11 +62,11 @@ const AiStoriesScreen = () => {
         </p>
         {userInfo && userInfo._id ? (
           <Link to={`/users/${userInfo._id}`}>
-            <Image src={`/images/buttons/share-story.svg`} />
+            <Image loading="lazy" src={`/images/buttons/share-story.svg`} />
           </Link>
         ) : (
           <Link to={`/login`}>
-            <Image src={`/images/buttons/share-story.svg`} />
+            <Image loading="lazy" src={`/images/buttons/share-story.svg`} />
           </Link>
         )}
 

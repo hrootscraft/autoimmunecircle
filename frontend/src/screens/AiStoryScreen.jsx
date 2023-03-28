@@ -54,7 +54,7 @@ const AiStoryScreen = () => {
             className="mt-3 mb-5"
           >
             <Col md={4} sm={12} className="text-center m-auto">
-              <Image fluid src={story.photo} />
+              <Image loading="lazy" fluid src={story.photo} />
             </Col>
 
             <Col className="my-auto" md={8} sm={12}>

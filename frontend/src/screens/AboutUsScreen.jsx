@@ -43,7 +43,7 @@ const AboutUsScreen = () => {
         className="mt-3"
       >
         <Col md={4} sm={12} className="my-auto">
-          <Image height={300} fluid src={founder.photo} />
+          <Image loading="lazy" height={300} fluid src={founder.photo} />
         </Col>
 
         <Col className="my-auto" md={8} sm={12}>
@@ -81,19 +81,21 @@ const AboutUsScreen = () => {
           and we respect that. So don't worry we've got your back!
         </p>
         <Link to={`/signup`}>
-          <Image className="mt-2" src="/images/buttons/join-us.svg" />
+          <Image loading="lazy" className="mt-2" src="/images/buttons/join-us.svg" />
         </Link>
       </Row>
 
       <Row className="text-center m-5">
         <Col className="my-auto" md={3}>
           <Image
+            loading="lazy"
             className="mx-3"
             width={30}
             height={30}
             src="/images/homepage/heart.svg"
           />
           <Image
+            loading="lazy"
             className="mx-3"
             width={30}
             height={30}
@@ -114,12 +116,14 @@ const AboutUsScreen = () => {
         </Col>
         <Col className="my-auto" md={3}>
           <Image
+            loading="lazy"
             className="mx-3"
             width={30}
             height={30}
             src="/images/homepage/heart.svg"
           />
           <Image
+            loading="lazy"
             className="mx-3"
             width={30}
             height={30}

@@ -21,19 +21,31 @@ const Footer = () => {
             <Row className="p-2 mt-3">
               <Col className="ms-5">
                 <a href="https://instagram.com/autoimmune_circle?igshid=YmMyMTA2M2Y=">
-                  <Image fluid src="/images/homepage/insta-icon.svg" />
+                  <Image
+                    loading="lazy"
+                    fluid
+                    src="/images/homepage/insta-icon.svg"
+                  />
                 </a>
               </Col>
 
               <Col>
                 <a href="https://www.facebook.com/profile.php?id=100088269910785">
-                  <Image fluid src="/images/homepage/facebook-icon.svg" />
+                  <Image
+                    loading="lazy"
+                    fluid
+                    src="/images/homepage/facebook-icon.svg"
+                  />
                 </a>
               </Col>
 
               <Col className="me-5">
                 <a href="mailto:autoimmunecircle@gmail.com">
-                  <Image fluid src="/images/homepage/mail-icon.svg" />
+                  <Image
+                    loading="lazy"
+                    fluid
+                    src="/images/homepage/mail-icon.svg"
+                  />
                 </a>
               </Col>
             </Row>

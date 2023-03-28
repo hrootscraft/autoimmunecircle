@@ -41,6 +41,7 @@ const diseasesScreen = () => {
         <Row>
           <Col md={3} sm={6} xs={6}>
             <Image
+              loading="lazy"
               className="my-2 mx-2"
               height={150}
               width={150}
@@ -50,6 +51,7 @@ const diseasesScreen = () => {
 
           <Col md={3} sm={6} xs={6}>
             <Image
+              loading="lazy"
               className="my-2 mx-2"
               height={150}
               width={150}
@@ -59,6 +61,7 @@ const diseasesScreen = () => {
 
           <Col md={3} sm={6} xs={6}>
             <Image
+              loading="lazy"
               className="my-2 mx-2"
               height={150}
               width={150}
@@ -68,6 +71,7 @@ const diseasesScreen = () => {
 
           <Col md={3} sm={6} xs={6}>
             <Image
+              loading="lazy"
               className="my-2 mx-2"
               height={150}
               width={150}
@@ -79,6 +83,7 @@ const diseasesScreen = () => {
         <Row>
           <Col md={3} sm={6} xs={6}>
             <Image
+              loading="lazy"
               className="my-2 mx-2"
               height={150}
               width={150}
@@ -88,6 +93,7 @@ const diseasesScreen = () => {
 
           <Col md={3} sm={6} xs={6}>
             <Image
+              loading="lazy"
               className="my-2 mx-2"
               height={150}
               width={150}
@@ -97,6 +103,7 @@ const diseasesScreen = () => {
 
           <Col md={3} sm={6} xs={6}>
             <Image
+              loading="lazy"
               className="my-2 mx-2"
               height={150}
               width={150}
@@ -106,6 +113,7 @@ const diseasesScreen = () => {
 
           <Col md={3} sm={6} xs={6}>
             <Image
+              loading="lazy"
               className="my-2 mx-2"
               height={150}
               width={150}
@@ -142,7 +150,7 @@ const diseasesScreen = () => {
         </p>
         <Row className="text-center m-4">
           <Link to={`/signup`}>
-            <Image src="/images/buttons/join-us.svg" />
+            <Image loading="lazy" src="/images/buttons/join-us.svg" />
           </Link>
         </Row>
       </Row>
